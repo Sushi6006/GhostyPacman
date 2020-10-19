@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class Pacdot : MonoBehaviour
 {   
-    //初始生成时间5秒钟
-
-    float times = 5f;
-
-   //物体
-    public GameObject pacdot;
-    GameObject targert = null; 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +16,8 @@ public class Pacdot : MonoBehaviour
     {
 
     }
-
+    
+    /*
     private void OnTriggerEnter(Collider collider)
     {   
         if (collider.name == "ghost")
@@ -30,4 +25,5 @@ public class Pacdot : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    */
 }

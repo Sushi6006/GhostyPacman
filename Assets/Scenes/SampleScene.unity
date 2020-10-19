@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba57c57fb91786644ab549e52c9909a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 4
+  rotateSpeed: 10
   pacdot: {fileID: 1175361790}
 --- !u!143 &552554575
 CharacterController:
@@ -152,8 +152,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 27
-  m_Radius: 15
+  m_Height: 40
+  m_Radius: 19
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -169,6 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -188,7 +189,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -227,7 +228,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -245,12 +246,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 81.7, y: -6.4, z: -29.9}
+  m_LocalPosition: {x: 0, y: 100, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd24d2fe3ad3641409ca0bfacbeed735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotateSpeed: 30
 --- !u!1 &752287545 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 65702495048144492, guid: 312ce524763f031429dbb83b64c25de4,
@@ -280,28 +294,27 @@ GameObject:
   - component: {fileID: 1175361794}
   - component: {fileID: 1175361793}
   - component: {fileID: 1175361792}
-  - component: {fileID: 1175361791}
   - component: {fileID: 1175361795}
+  - component: {fileID: 1175361791}
   m_Layer: 0
   m_Name: Pacdot
-  m_TagString: Untagged
+  m_TagString: pacdot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1175361791
-CapsuleCollider:
+--- !u!65 &1175361791
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175361790}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1175361792
 MeshRenderer:
@@ -376,7 +389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4c269bda0444b4892c0d799e19cc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pacdot: {fileID: 1175361790}
 --- !u!1001 &1968454002
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -532,7 +544,32 @@ PrefabInstance:
     - target: {fileID: 3725102176391765030, guid: 312ce524763f031429dbb83b64c25de4,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725102176391765030, guid: 312ce524763f031429dbb83b64c25de4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725102176391765030, guid: 312ce524763f031429dbb83b64c25de4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9884169
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725102176391765030, guid: 312ce524763f031429dbb83b64c25de4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.062745094
+      objectReference: {fileID: 0}
+    - target: {fileID: 7013457874192668947, guid: 312ce524763f031429dbb83b64c25de4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3f3273928f9de9d40a25cc3545db9138, type: 2}
+    - target: {fileID: 8934777400606672865, guid: 312ce524763f031429dbb83b64c25de4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 312ce524763f031429dbb83b64c25de4, type: 3}
