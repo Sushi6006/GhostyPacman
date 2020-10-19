@@ -56,7 +56,7 @@ public class Maze : MonoBehaviour
     bool checkNeighbour(int rows, int columns)
     {
         if (columns >= 0 && rows >= 0 && rows < row && columns < column
-            && !grid[columns, rows].visted)
+            && !grid[rows, columns].visted)
         {
             return true;
         }
@@ -116,8 +116,9 @@ public class Maze : MonoBehaviour
                         Destroy(grid[currentrow, currentcolumn].downWall);
                     }
                 }
+                
             }
-            else if (direction == 1)
+            if (direction == 1)
             {
                 if (currentrow < row - 1 && !grid[currentrow + 1, currentcolumn].visted)
                 {
@@ -133,8 +134,9 @@ public class Maze : MonoBehaviour
                         Destroy(grid[currentrow, currentcolumn].upWall);
                     }
                 }
+                
             }
-            else if (direction == 2)
+            if (direction == 2)
             {
                 if (currentcolumn > 0 && !grid[currentrow, currentcolumn - 1].visted)
                 {
@@ -149,8 +151,9 @@ public class Maze : MonoBehaviour
                         Destroy(grid[currentrow, currentcolumn].rightWall);
                     }
                 }
+                
             }
-            else
+            if (direction == 3)
             {
                 if (currentcolumn < column - 1 && !grid[currentrow, currentcolumn + 1].visted)
                 {
@@ -165,6 +168,7 @@ public class Maze : MonoBehaviour
                         Destroy(grid[currentrow, currentcolumn].leftWall);
                     }
                 }
+                
             }
         }
     }
@@ -213,63 +217,72 @@ public class Maze : MonoBehaviour
 
     void DestroyAdjacentWall()
     {
-        int direction = Random.Range(0, 4);
-        Debug.Log(direction);
-        if (direction == 0)
+        bool distroy = false;
+        while (!distroy)
         {
-            if (currentrow > 0 && grid[currentrow - 1, currentcolumn].visted)
+            int direction = Random.Range(0, 4);
+            if (direction == 0)
             {
-                if (grid[currentrow, currentcolumn].upWall)
+                if (currentrow > 0 && grid[currentrow - 1, currentcolumn].visted)
                 {
-                    Destroy(grid[currentrow, currentcolumn].upWall);
-                }
-                if (grid[currentrow, currentcolumn].downWall)
-                {
-                    Destroy(grid[currentrow, currentcolumn].downWall);
+                    if (grid[currentrow, currentcolumn].upWall)
+                    {
+                        Destroy(grid[currentrow, currentcolumn].upWall);
+                    }
+                    if (grid[currentrow - 1, currentcolumn].downWall)
+                    {
+                        Destroy(grid[currentrow - 1, currentcolumn].downWall);
+                    }
+                    distroy = true;
                 }
             }
-        }
-        else if (direction == 1)
-        {
-            if (currentrow < row - 1 && grid[currentrow + 1, currentcolumn].visted)
+            else if (direction == 1)
             {
-                if (grid[currentrow, currentcolumn].downWall)
+                if (currentrow < row - 1 && grid[currentrow + 1, currentcolumn].visted)
                 {
-                    Destroy(grid[currentrow, currentcolumn].downWall);
-                }
-                if (grid[currentrow, currentcolumn].upWall)
-                {
-                    Destroy(grid[currentrow, currentcolumn].upWall);
+                    if (grid[currentrow, currentcolumn].downWall)
+                    {
+                        Destroy(grid[currentrow, currentcolumn].downWall);
+                    }
+                    if (grid[currentrow + 1, currentcolumn].upWall)
+                    {
+                        Destroy(grid[currentrow + 1, currentcolumn].upWall);
+                    }
+                    distroy = true;
                 }
             }
-        }
-        else if (direction == 2)
-        {
-            if (currentcolumn > 0 && grid[currentrow, currentcolumn - 1].visted)
+            else if (direction == 2)
             {
-                if (grid[currentrow, currentcolumn].leftWall)
+                if (currentcolumn > 0 && grid[currentrow, currentcolumn - 1].visted)
                 {
-                    Destroy(grid[currentrow, currentcolumn].leftWall);
-                }
-                if (grid[currentrow, currentcolumn].rightWall)
-                {
-                    Destroy(grid[currentrow, currentcolumn].rightWall);
+                    if (grid[currentrow, currentcolumn].leftWall)
+                    {
+                        Destroy(grid[currentrow, currentcolumn].leftWall);
+                    }
+                    if (grid[currentrow, currentcolumn - 1].rightWall)
+                    {
+                        Destroy(grid[currentrow, currentcolumn - 1].rightWall);
+                    }
+                    distroy = true;
                 }
             }
-        }
-        else
-        {
-            if (currentcolumn < column - 1 && grid[currentrow, currentcolumn + 1].visted)
+            else
             {
-                if (grid[currentrow, currentcolumn].rightWall)
+                if (currentcolumn < column - 1 && grid[currentrow, currentcolumn + 1].visted)
                 {
-                    Destroy(grid[currentrow, currentcolumn].rightWall);
+                    if (grid[currentrow, currentcolumn].rightWall)
+                    {
+                        Destroy(grid[currentrow, currentcolumn].rightWall);
+                    }
+                    if (grid[currentrow, currentcolumn + 1].leftWall)
+                    {
+                        Destroy(grid[currentrow, currentcolumn + 1].leftWall);
+                    }
+                    distroy = true;
                 }
-                if (grid[currentrow, currentcolumn].leftWall)
-                {
-                    Destroy(grid[currentrow, currentcolumn].leftWall);
-                }
+
             }
         }
+        
     }
 }

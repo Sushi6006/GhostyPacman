@@ -465,8 +465,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Wall: {fileID: 2972896151740040542, guid: f5f881a679e964358800e385c366a1e3, type: 3}
   Floor: {fileID: 6477668291757150179, guid: 74f5b66048a694f6988c50a265a12dfb, type: 3}
-  row: 4
-  column: 4
+  row: 20
+  column: 20
 --- !u!4 &1202590488
 Transform:
   m_ObjectHideFlags: 0
