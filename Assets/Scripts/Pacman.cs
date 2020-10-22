@@ -34,7 +34,7 @@ public class Pacman : MonoBehaviour
     private float generatingTime = 2.0f;
     private float times = 2.0f;
     //maximum number of pacdot
-    private int maximumPacdot = 3;
+    private int maximumPacdot = 20;
     //current pacdot's number
     private int currentNumPacdot = 0;
 
@@ -95,12 +95,12 @@ public class Pacman : MonoBehaviour
             if (currentNumPacdot < maximumPacdot)
             {
                 //generate a new pacdot
-                GameObject obj = (GameObject)Instantiate(pacdot);
+                GameObject newPacdot = (GameObject)Instantiate(pacdot);
 
                 //position the new pacdot in the map
-                int ni = Random.Range(0, 65);
-                int nt = Random.Range(0, 65);
-                obj.transform.position = new Vector3(ni, 0, nt);
+                float ni = Random.Range(-32.5f, 32.5f);
+                float nt = Random.Range(-32.5f, 32.5f);
+                newPacdot.transform.position = new Vector3(ni, 30, nt);
 
                 //increase number of current existing pacdot
                 currentNumPacdot ++;

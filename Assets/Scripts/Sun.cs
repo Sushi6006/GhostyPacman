@@ -6,7 +6,7 @@ public class Sun : MonoBehaviour
 {
     public float rotateSpeed = 5f;
     Vector3 landScapeCentre = new Vector3(0f, 0f, 0f);
-    Vector3 originPoint = new Vector3(0f, 0f, 0f);
+    Vector3 originPoint = new Vector3(0f, 100f, 0f);
     Vector3 originRotation = new Vector3(90f, 0f, 0f);
 
     // Update is called once per frame

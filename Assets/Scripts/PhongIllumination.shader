@@ -75,7 +75,7 @@
 					
 					//specular part
 					//ks is the Specular constant
-					float Ks = 1;
+					float Ks = 0.5;
 					//shininess represents how shine the surface is
 					int shininess = 2;
 					//R is the reflection directionV
