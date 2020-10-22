@@ -1,4 +1,5 @@
 **The University of Melbourne**
+<!-- omit in toc -->
 # COMP30019 – Graphics and Interaction
 
 Final Electronic Submission (project): **4pm, Fri. 6 November**
@@ -7,6 +8,7 @@ Do not forget **One member** of your group must submit a text file to the LMS (C
 
 You can add a link to your Gameplay Video here but you must have already submit it by **4pm, Sun. 25 October**
 
+<!-- omit in toc -->
 # Project-2 README
 
 You must modify this `README.md` that describes your application, specifically what it does, how to use it, and how you evaluated and improved it.
@@ -36,15 +38,13 @@ Remember that _"this document"_ should be `well written` and formatted **appropr
 
 - [ ] A description of the contributions made by each member of the group.
 
+<!-- omit in toc -->
 ## Table of contents
-- [COMP30019 – Graphics and Interaction](#comp30019--graphics-and-interaction)
-- [Project-2 README](#project-2-readme)
-  - [Table of contents](#table-of-contents)
-  - [Team Members](#team-members)
-  - [Explanation of the game](#explanation-of-the-game)
-  - [Technologies](#technologies)
-  - [Using Images](#using-images)
-  - [Code Snippets](#code-snippets)
+- [Team Members](#team-members)
+- [Explanation of the game](#explanation-of-the-game)
+- [Technologies](#technologies)
+- [Using Images](#using-images)
+- [Code Snippets](#code-snippets)
 
 ## Team Members
 
