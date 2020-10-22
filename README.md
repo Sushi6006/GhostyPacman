@@ -37,11 +37,14 @@ Remember that _"this document"_ should be `well written` and formatted **appropr
 - [ ] A description of the contributions made by each member of the group.
 
 ## Table of contents
-* [Team Members](#team-members)
-* [Explanation of the game](#explanation-of-the-game)
-* [Technologies](#technologies)
-* [Using Images](#using-images)
-* [Code Snipets ](#code-snippets)
+- [COMP30019 – Graphics and Interaction](#comp30019--graphics-and-interaction)
+- [Project-2 README](#project-2-readme)
+  - [Table of contents](#table-of-contents)
+  - [Team Members](#team-members)
+  - [Explanation of the game](#explanation-of-the-game)
+  - [Technologies](#technologies)
+  - [Using Images](#using-images)
+  - [Code Snippets](#code-snippets)
 
 ## Team Members
 
