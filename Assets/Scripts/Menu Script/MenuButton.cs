@@ -58,10 +58,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             }
 
         }
-            if(animator.GetBool("Click")){
-                SceneManager.LoadScene("Project");
-            }
-        
         
         
     }
@@ -80,6 +76,10 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public bool checkMouse_over(){
         return mouse_over;
+    }
+
+    public void switchScene(){
+        SceneManager.LoadScene("Project");
     }
 
 }
