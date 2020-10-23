@@ -41,18 +41,26 @@ public class Pacman : MonoBehaviour
     //player's score
     private int score = 0;
 
+    //player's health
+    public int health = 100;
+    private bool isDead = false;
+
     // Start is called before the first frame update
     void Start()
     {   
         controller = GetComponent<CharacterController>();
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {   
-        Move();
-        //PacdotGenerate();
-        print(score);
+        if (!isDead){
+            Move();
+            //PacdotGenerate();
+            print(score);
+            print(health);
+        }
     }
 
     // Move controller 
@@ -86,6 +94,33 @@ public class Pacman : MonoBehaviour
         controller.Move(moveDirec * Time.deltaTime * movementSpeed);
     }
 
+
+    //collision test
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {      
+        GameObject target = hit.collider.gameObject;
+        //eat the pacdot
+        if (target.tag == "pacdot")
+        {   
+            currentNumPacdot --;
+            Destroy(target);
+            score ++;
+        }
+
+        //be hurted by ghost
+        if (target.tag == "ghost")
+        {
+            ChasingGhost ghostScript = (ChasingGhost)target.GetComponent(typeof(ChasingGhost));
+            ghostScript.attackPacman();
+        }
+
+        if (health <= 0)
+        {
+            isDead = true;
+        }
+    }
+
+
     /*
     //generate new pacdot
     void PacdotGenerate()
@@ -112,16 +147,5 @@ public class Pacman : MonoBehaviour
         }
     }
     */
-
-    //eat the pacdot
-    void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.collider.gameObject.tag == "pacdot")
-        {   
-            currentNumPacdot --;
-            Destroy(hit.collider.gameObject);
-            score ++;
-        }
-    }
 
 }

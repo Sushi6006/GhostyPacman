@@ -13,11 +13,14 @@ public class Sun : MonoBehaviour
     void Update() {
 
         selfRotation();
+
+        /*
         //reset sun when press space
         if (Input.GetKeyDown(KeyCode.Space))
         {
             resetSun();
         }
+        */
     
     }
 
@@ -26,9 +29,11 @@ public class Sun : MonoBehaviour
         transform.RotateAround(landScapeCentre, Vector3.right, rotateSpeed * Time.deltaTime);
     }
 
+    /*
     void resetSun()
     {   
         transform.position = originPoint;
         transform.rotation = Quaternion.Euler(originRotation);
     }
+    */
 }
