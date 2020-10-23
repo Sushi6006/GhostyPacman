@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -11,6 +12,10 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] MenuAnimationControl menuAnimationControl;
     [SerializeField] int thisIndex;
     [SerializeField] bool mouse_over = false;
+
+
+
+    
 
 
     void Start()
@@ -24,15 +29,15 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         //if the player use the mouse to choose
         if(mouse_over){
             menuController.resetIndexOfButton();
-            
             animator.SetBool ("selected", true);
-
             if(Input.GetAxis("Submit") == 1 || Input.GetMouseButton(0)){
                 animator.SetBool("Click", true);
             
             }else if(animator.GetBool("Click")){
                 animator.SetBool("Click", false);
-                //menuAnimationControl.disableOnce = true;
+                menuAnimationControl.disableOnce = true;
+
+                
             }else if(!mouse_over){
                 animator.SetBool("selected",false);
             }
@@ -46,13 +51,17 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
                 }else if(animator.GetBool("Click")){
                     animator.SetBool("Click", false);
-                    //menuAnimationControl.disableOnce = true;
+                    menuAnimationControl.disableOnce = true;
                 }
             }else{
                 animator.SetBool("selected", false);
             }
 
         }
+            if(animator.GetBool("Click")){
+                SceneManager.LoadScene("Project");
+            }
+        
         
         
     }
