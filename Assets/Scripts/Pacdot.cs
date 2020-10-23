@@ -17,7 +17,7 @@ public class Pacdot : MonoBehaviour
 
     }
     
-    
+    /*
     private void OnTriggerEnter(Collider collider)
     {   
         if (collider.name == "ghost")
@@ -25,5 +25,6 @@ public class Pacdot : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    */
 
 }
