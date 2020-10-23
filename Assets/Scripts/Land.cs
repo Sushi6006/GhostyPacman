@@ -53,8 +53,6 @@ public class Land : MonoBehaviour
                         {
                             if ((i == size - 1 - distance && j == (size - 1) / 2) || (i == size - 1 - distance && j == (size - 1) / 2 + 1) || (i == size - 1 - distance && j == (size - 1) / 2 - 1))
                             {   
-                                GameObject newPacdot = (GameObject)Instantiate(pacdot);
-                            newPacdot.transform.position = new Vector3(i - 32.5f, 2, j - 32.5f);
                                 continue;
                             }
                             else
