@@ -8,6 +8,7 @@ public class Land : MonoBehaviour
     private int size = 65; // The detail level of the landscape, must be 2^n + 1. Higher n means more details
     
     public GameObject Square;
+    public GameObject pacdot;
 
     void Start()
     {
@@ -19,8 +20,6 @@ public class Land : MonoBehaviour
    
 
     // Update is called once per frame
-    
-
     public void generateColumn()
     {
         int distance = 4;
@@ -31,7 +30,7 @@ public class Land : MonoBehaviour
                 if (i == 0 || j == 0 || i == size - 1 || j == size - 1)
                 {
                     if((i == 0 && j == (size - 1) / 2) || (i == 0 && j == (size - 1) / 2 + 1) || (i == 0 && j == (size - 1) / 2 - 1))
-                    {
+                    {   
                         continue;
                     }
                     else
@@ -53,7 +52,9 @@ public class Land : MonoBehaviour
                         if (distance == 4)
                         {
                             if ((i == size - 1 - distance && j == (size - 1) / 2) || (i == size - 1 - distance && j == (size - 1) / 2 + 1) || (i == size - 1 - distance && j == (size - 1) / 2 - 1))
-                            {
+                            {   
+                                GameObject newPacdot = (GameObject)Instantiate(pacdot);
+                            newPacdot.transform.position = new Vector3(i - 32.5f, 2, j - 32.5f);
                                 continue;
                             }
                             else
@@ -100,6 +101,12 @@ public class Land : MonoBehaviour
             distance += 4;
         }
 
+    }
+
+    private void generatePacdot(float i, float j)
+    {
+        GameObject newPacdot = (GameObject)Instantiate(pacdot);
+        newPacdot.transform.position = new Vector3(i - 32.5f, 2, j - 32.5f);
     }
 
   
