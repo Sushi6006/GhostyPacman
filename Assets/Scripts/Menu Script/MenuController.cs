@@ -9,17 +9,17 @@ public class MenuController : MonoBehaviour
     [SerializeField] int maxNumOfButton;
     [SerializeField] MenuButton menuButton;
 
-    //public AudioSource audioSource;
+    public AudioSource audioSource;
+
+
     // Start is called before the first frame update
-    void Start()
-    {
-        //Using for music
-        //audioSource = GetCompoment<AudioSource>();
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     // Update is called once per frame
-    void Update()
-    {   
+    void Update() {   
         //Debug.Log(menuButton.checkMouse_over());
 
         //if(!menuButton.checkMouse_over()){
@@ -43,7 +43,6 @@ public class MenuController : MonoBehaviour
             } else {
                 keydown = false;
             }
-        //}
     }
 
     public void resetIndexOfButton(){
