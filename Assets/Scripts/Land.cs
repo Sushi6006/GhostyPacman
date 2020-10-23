@@ -113,7 +113,7 @@ public class Land : MonoBehaviour
     private void generatePacdot(float i, float j)
     {
         GameObject newPacdot = (GameObject)Instantiate(pacdot);
-        newPacdot.transform.position = new Vector3(i - 32.5f, 2, j - 32.5f);
+        newPacdot.transform.position = new Vector3(i - 32.5f, 1, j - 32.5f);
     }
 
    private void PacdotPostition()
