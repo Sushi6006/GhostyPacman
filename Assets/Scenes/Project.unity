@@ -575,6 +575,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3725102176391765030, guid: 312ce524763f031429dbb83b64c25de4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725102176391765030, guid: 312ce524763f031429dbb83b64c25de4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.48660558
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725102176391765030, guid: 312ce524763f031429dbb83b64c25de4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.75367475
+      objectReference: {fileID: 0}
     - target: {fileID: 8934777400606672865, guid: 312ce524763f031429dbb83b64c25de4,
         type: 3}
       propertyPath: m_IsActive
@@ -645,7 +660,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956080599}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0

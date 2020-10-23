@@ -45,6 +45,7 @@ public class Pacman : MonoBehaviour
     void Start()
     {   
         controller = GetComponent<CharacterController>();
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -52,6 +53,7 @@ public class Pacman : MonoBehaviour
     {   
         Move();
         //PacdotGenerate();
+        
         print(score);
     }
 
