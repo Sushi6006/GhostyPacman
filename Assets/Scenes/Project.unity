@@ -944,7 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Square: {fileID: 1084962682}
-  Land: {fileID: 1084962682}
+  pacdot: {fileID: 1402582134}
 --- !u!4 &1042142152
 Transform:
   m_ObjectHideFlags: 0
@@ -1654,3 +1654,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Square: {fileID: 1116979127}
   pacdot: {fileID: 1402582134}
+  PyramidSquare: {fileID: 0}

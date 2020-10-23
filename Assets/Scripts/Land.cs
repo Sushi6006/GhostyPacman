@@ -9,11 +9,14 @@ public class Land : MonoBehaviour
     
     public GameObject Square;
     public GameObject pacdot;
+    public GameObject PyramidSquare;
+    private int NumberPyramid = 10;
 
     void Start()
     {
 
         generateColumn();
+        PacdotPostition();
 
     }
 
@@ -23,10 +26,12 @@ public class Land : MonoBehaviour
     public void generateColumn()
     {
         int distance = 4;
+
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j <size; j++)
             {
+
                 if (i == 0 || j == 0 || i == size - 1 || j == size - 1)
                 {
                     if((i == 0 && j == (size - 1) / 2) || (i == 0 && j == (size - 1) / 2 + 1) || (i == 0 && j == (size - 1) / 2 - 1))
@@ -37,6 +42,7 @@ public class Land : MonoBehaviour
                     {
                         GameObject pyramid = GameObject.Instantiate<GameObject>(Square);
                         pyramid.transform.position = new Vector3(i - 32.5f, 0, j - 32.5f);
+
                     }
                 }
             }
@@ -52,13 +58,14 @@ public class Land : MonoBehaviour
                         if (distance == 4)
                         {
                             if ((i == size - 1 - distance && j == (size - 1) / 2) || (i == size - 1 - distance && j == (size - 1) / 2 + 1) || (i == size - 1 - distance && j == (size - 1) / 2 - 1))
-                            {   
+                            {
                                 continue;
                             }
                             else
                             {
                                 GameObject pyramid = GameObject.Instantiate<GameObject>(Square);
                                 pyramid.transform.position = new Vector3(i - 32.5f, 0, j - 32.5f);
+
                             }
                         }else if(distance == 8)
                         {
@@ -70,6 +77,7 @@ public class Land : MonoBehaviour
                             {
                                 GameObject pyramid = GameObject.Instantiate<GameObject>(Square);
                                 pyramid.transform.position = new Vector3(i - 32.5f, 0, j - 32.5f);
+
                             }
                         }
                         else
@@ -91,6 +99,7 @@ public class Land : MonoBehaviour
                             {
                                 GameObject pyramid = GameObject.Instantiate<GameObject>(Square);
                                 pyramid.transform.position = new Vector3(i - 32.5f, 0, j - 32.5f);
+
                             }
                         }
                     }
@@ -107,6 +116,25 @@ public class Land : MonoBehaviour
         newPacdot.transform.position = new Vector3(i - 32.5f, 2, j - 32.5f);
     }
 
-  
-    
+   private void PacdotPostition()
+    {
+        int distance = 2;
+        while (distance  < 11)
+        {
+            for (int i = distance; i < size - distance; i+=2)
+            {
+                for (int j = distance; j < size - distance; j+=2)
+                {
+                    if (i == distance || j == distance || i == size - 1 - distance || j == size - 1 - distance)
+                    {
+                        generatePacdot(i, j);
+
+                    }
+                }
+            }
+            distance += 4;
+        }
+        
+    }
+
 }
