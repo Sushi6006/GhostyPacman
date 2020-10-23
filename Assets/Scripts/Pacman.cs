@@ -51,7 +51,7 @@ public class Pacman : MonoBehaviour
     void Update()
     {   
         Move();
-        PacdotGenerate();
+        //PacdotGenerate();
         print(score);
     }
 
@@ -86,6 +86,7 @@ public class Pacman : MonoBehaviour
         controller.Move(moveDirec * Time.deltaTime * movementSpeed);
     }
 
+    /*
     //generate new pacdot
     void PacdotGenerate()
     {
@@ -100,7 +101,8 @@ public class Pacman : MonoBehaviour
                 //position the new pacdot in the map
                 float ni = Random.Range(-32.5f, 32.5f);
                 float nt = Random.Range(-32.5f, 32.5f);
-                newPacdot.transform.position = new Vector3(ni, 30, nt);
+
+                newPacdot.transform.position = new Vector3(ni, 2, nt);
 
                 //increase number of current existing pacdot
                 currentNumPacdot ++;
@@ -109,6 +111,7 @@ public class Pacman : MonoBehaviour
             times = generatingTime;
         }
     }
+    */
 
     //eat the pacdot
     void OnControllerColliderHit(ControllerColliderHit hit)
