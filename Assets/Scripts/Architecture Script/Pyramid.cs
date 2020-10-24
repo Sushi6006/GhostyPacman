@@ -15,7 +15,7 @@ public class Pyramid : MonoBehaviour
     }
     private void GeneratePyramid()
     {
-        int height = 0;
+        int height = 1;
         while (NumberPyramid >= 0)
         {
             for (int i = -NumberPyramid; i <= NumberPyramid; i++)
