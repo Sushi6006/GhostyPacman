@@ -43,6 +43,8 @@ public class Pacman : MonoBehaviour
     private bool isDead = false;
     public DeadMenuControl deadMenuControl;
 
+    public MenuButton menuButton;
+
     // Start is called before the first frame update
     void Start()
     {   
@@ -65,6 +67,7 @@ public class Pacman : MonoBehaviour
                 } 
             }
         }else{
+            scoreText.enabled = false;
             Cursor.visible = true;
             deadMenuControl.toggleDeadMenu(score);
         }
