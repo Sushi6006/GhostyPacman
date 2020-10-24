@@ -27,16 +27,10 @@ public class Pacman : MonoBehaviour
     //floating scale
     private float floatScale = 0.05f;
 
-    //pacdot attributes
-    //pacdot is the object will be generated
-    public GameObject pacdot;
-    //the gap between generating
-    private float generatingTime = 2.0f;
-    private float times = 2.0f;
-    //maximum number of pacdot
-    private int maximumPacdot = 20;
-    //current pacdot's number
-    private int currentNumPacdot = 0;
+    //powerPacdot
+    private bool isInvincible = false;
+    private float invincibleTime = 0f;
+    private float invincibleKeepTime = 5f;
 
     //player's score
     private int score = 0;
@@ -57,10 +51,17 @@ public class Pacman : MonoBehaviour
     {   
         if (!isDead){
             Move();
-            //PacdotGenerate();
-            print(score);
-            print(health);
+            if (isInvincible)
+            {
+                invincibleTime -= Time.deltaTime;
+                if (invincibleTime <= 0)
+                {
+                    isInvincible = false;
+                } 
+            }
         }
+        print(score);
+        print(health);
     }
 
     // Move controller 
@@ -96,33 +97,70 @@ public class Pacman : MonoBehaviour
 
 
     //collision test
-    void OnControllerColliderHit(ControllerColliderHit hit)
+    void OnTriggerEnter(Collider hit)
     {      
-        GameObject target = hit.collider.gameObject;
+        GameObject target = hit.gameObject;
         //eat the pacdot
         if (target.tag == "pacdot")
         {   
-            currentNumPacdot --;
             Destroy(target);
             score ++;
         }
 
-        //be hurted by ghost
-        if (target.tag == "ghost")
+        //eat the power pacdot
+        if (target.tag == "PowerPacdot")
         {
-            ChasingGhost ghostScript = (ChasingGhost)target.GetComponent(typeof(ChasingGhost));
-            ghostScript.attackPacman();
+            Destroy(target);
+            isInvincible = true;
+            invincibleTime = invincibleKeepTime;
         }
 
-        if (health <= 0)
+        //collision with ghost
+        //invincible status
+        if (isInvincible)
         {
-            isDead = true;
+            if (target.tag == "ChasingGhost" || target.tag == "PatrolGhost")
+            {
+                Destroy(target);
+                score += 10;
+            }
+        }
+        //not in invincible status
+        else 
+        {
+            //chasing
+            if (target.tag == "ChasingGhost")
+            {
+                ChasingGhost ghostScript = (ChasingGhost)target.GetComponent(typeof(ChasingGhost));
+                ghostScript.attackPacman();
+            }
+            //patrol
+            if (target.tag == "PatrolGhost")
+            {
+                GameObject.Find("PatrolGhost_A").GetComponent<PatrolGhostA>().attackPacman();
+            }
+            //check health
+            if (health <= 0)
+            {
+                isDead = true;
+            }
         }
     }
 
 
     /*
+    //pacdot attributes
+    //pacdot is the object will be generated
+    public GameObject pacdot;
+    //the gap between generating
+    private float generatingTime = 2.0f;
+    private float times = 2.0f;
+    //maximum number of pacdot
+    private int maximumPacdot = 20;
+    //current pacdot's number
+    private int currentNumPacdot = 0;
     //generate new pacdot
+
     void PacdotGenerate()
     {
         times -= Time.deltaTime; 

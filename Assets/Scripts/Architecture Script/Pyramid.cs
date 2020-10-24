@@ -17,7 +17,7 @@ public class Pyramid : MonoBehaviour
     {
         int height = 1;
         while (NumberPyramid >= 0)
-        {
+        {   
             for (int i = -NumberPyramid; i <= NumberPyramid; i++)
             {
                 for (int j = -NumberPyramid; j <= NumberPyramid; j++)
@@ -40,6 +40,8 @@ public class Pyramid : MonoBehaviour
             NumberPyramid--;
             height++;
         }
+
+
 
     }
     

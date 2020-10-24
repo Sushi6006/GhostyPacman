@@ -29,6 +29,7 @@ public class ChasingGhost : MonoBehaviour
     {   
         times -= Time.deltaTime; 
         agent.destination = target.transform.position;
+
     }
 
     public void attackPacman()

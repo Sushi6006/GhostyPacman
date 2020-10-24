@@ -9,11 +9,17 @@ public class Land : MonoBehaviour
     
     public GameObject Square;
     public GameObject pacdot;
+    public GameObject powerPacdot;
     public GameObject PyramidSquare;
     private int NumberPyramid = 10;
 
+    //power pacdot position
+    Vector3 pointA = new Vector3(18f, 2f, -18f);
+
     void Start()
     {
+        GameObject newPowerPacdot = (GameObject)Instantiate(powerPacdot);
+        newPowerPacdot.transform.position = pointA;
 
         generateColumn();
         PacdotPostition();
