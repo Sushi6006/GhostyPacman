@@ -74,9 +74,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
          Debug.Log("Mouse exit");
      }
 
-    public bool checkMouse_over(){
-        return mouse_over;
-    }
 
     public void switchScene(){
         SceneManager.LoadScene("Project");
