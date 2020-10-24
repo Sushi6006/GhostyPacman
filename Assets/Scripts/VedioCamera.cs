@@ -12,6 +12,9 @@ public class VedioCamera : MonoBehaviour
     // Start is called before the first frame update
 
     private float x = 0f;
+    private float z = 0f;
+    private float y = 0f;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -28,29 +31,39 @@ public class VedioCamera : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * rotateSpeed;
         transform.localRotation = transform.localRotation * Quaternion.Euler(0, mouseX, 0);
 
-        if (Input.GetKey("j"))
+        if (Input.GetKeyDown(KeyCode.Space))
         {   
-            controller.Move(new Vector3(0, 1, 0)* Time.deltaTime * flySpeed);
+            y ++;
+            controller.Move(new Vector3(0, y, 0) * Time.deltaTime * flySpeed);
+        }
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            y --;
+            controller.Move(new Vector3(0, y, 0) * Time.deltaTime * flySpeed);
+        }
+
+        if (Input.GetKey("i"))
+        {   
+            x -= 3;
         }
 
         if (Input.GetKey("k"))
         {
-            controller.Move(new Vector3(0, -1, 0)* Time.deltaTime * flySpeed);
+            x += 3;
         }
 
-        if (Input.GetKey("u"))
-        {   
-            x += 5;
-            transform.rotation=Quaternion.Euler(x, mouseX, 0.0f);
-        }
-
-        if (Input.GetKey("i"))
+        if (Input.GetKey("j"))
         {
-            x -= 5;
-            transform.rotation=Quaternion.Euler(x, mouseX, 0.0f);
+            z -= 3;
         }
 
+        if (Input.GetKey("l"))
+        {
+            z += 3;
+        }
 
+        transform.rotation=Quaternion.Euler(x, z, 0);
         controller.Move(moveDirec * Time.deltaTime * movementSpeed);
     }
 
