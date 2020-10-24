@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuController: {fileID: 936110084}
-  animator: {fileID: 0}
+  animator: {fileID: 1457105800}
   menuAnimationControl: {fileID: 0}
   thisIndex: -10
   mouse_over: 0
