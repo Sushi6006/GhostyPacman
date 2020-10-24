@@ -141,19 +141,17 @@ public class Pacman : MonoBehaviour
         {
             //chasing
             if (target.tag == "ChasingGhost")
-            {
-                ChasingGhost ghostScript = (ChasingGhost)target.GetComponent(typeof(ChasingGhost));
-                ghostScript.attackPacman();
+            {   
+                isDead = true;
+                //ChasingGhost ghostScript = (ChasingGhost)target.GetComponent(typeof(ChasingGhost));
+                //ghostScript.attackPacman();
             }
             //patrol
             if (target.tag == "PatrolGhost")
-            {
-                GameObject.Find("PatrolGhost_A").GetComponent<PatrolGhostA>().attackPacman();
-            }
-            //check health
-            if (health <= 0)
-            {
+            {   
                 isDead = true;
+                //GameObject.Find("PatrolGhost_A").GetComponent<PatrolGhostA>().attackPacman();
+                //ghostScript.attackPacman();
             }
         }
     }
