@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Pacman : MonoBehaviour
 {   
@@ -34,10 +36,12 @@ public class Pacman : MonoBehaviour
 
     //player's score
     private int score = 0;
+    public TextMeshProUGUI scoreText;
 
     //player's health
     public int health = 100;
     private bool isDead = false;
+    public DeadMenuControl deadMenuControl;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +55,7 @@ public class Pacman : MonoBehaviour
     {   
         if (!isDead){
             Move();
+            scoreText.text = "SCORE:" + score.ToString();
             if (isInvincible)
             {
                 invincibleTime -= Time.deltaTime;
@@ -59,6 +64,9 @@ public class Pacman : MonoBehaviour
                     isInvincible = false;
                 } 
             }
+        }else{
+            Cursor.visible = true;
+            deadMenuControl.toggleDeadMenu(score);
         }
         print(score);
         print(health);
