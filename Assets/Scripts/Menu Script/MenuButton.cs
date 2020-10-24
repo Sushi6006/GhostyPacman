@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+
 public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     // Start is called before the first frame update
@@ -36,8 +37,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             }else if(animator.GetBool("Click")){
                 animator.SetBool("Click", false);
                 menuAnimationControl.disableOnce = true;
-
-                
             }else if(!mouse_over){
                 animator.SetBool("selected",false);
             }
@@ -77,6 +76,11 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void switchScene(){
         SceneManager.LoadScene("Project");
+    }
+
+    public void EndGame(){
+        //Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 
 }
