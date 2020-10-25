@@ -45,6 +45,9 @@ public class Pacman : MonoBehaviour
 
     public MenuButton menuButton;
 
+    // sfx
+    public AudioSource eatSfx;
+
     // Start is called before the first frame update
     void Start()
     {   
@@ -114,6 +117,7 @@ public class Pacman : MonoBehaviour
         //eat the pacdot
         if (target.tag == "pacdot")
         {   
+            eatSfx.Play();
             Destroy(target);
             score ++;
         }
