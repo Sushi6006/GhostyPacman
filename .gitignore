@@ -11,6 +11,8 @@
 /[Mm]emoryCaptures/
 # i guess this has to be included as well
 Library/
+Assets/*.meta
+Assets/**/*.meta
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -23,6 +25,7 @@ Library/
 
 # Visual Studio cache directory
 .vs/
+.vscode/
 
 # Gradle cache directory
 .gradle/
