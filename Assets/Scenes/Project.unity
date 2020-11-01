@@ -2850,7 +2850,7 @@ PrefabInstance:
     - target: {fileID: 6477668291757150179, guid: 74f5b66048a694f6988c50a265a12dfb,
         type: 3}
       propertyPath: m_Name
-      value: RedFloor2
+      value: GreenFloor2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74f5b66048a694f6988c50a265a12dfb, type: 3}
@@ -3033,6 +3033,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Maze
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183505635585135885, guid: 984f91c047ff42b498958b1a1a151db9,
+        type: 3}
+      propertyPath: m_Name
+      value: Blue Floor
       objectReference: {fileID: 0}
     - target: {fileID: 8797850857720625972, guid: 984f91c047ff42b498958b1a1a151db9,
         type: 3}
@@ -17917,6 +17922,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4143058134999352928, guid: bea4c249b5e35374588fb3cdf22d81f8,
+        type: 3}
+      propertyPath: m_Name
+      value: Green
+      objectReference: {fileID: 0}
     - target: {fileID: 5642367280435737110, guid: bea4c249b5e35374588fb3cdf22d81f8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -19884,7 +19894,7 @@ PrefabInstance:
     - target: {fileID: 6477668291757150179, guid: 74f5b66048a694f6988c50a265a12dfb,
         type: 3}
       propertyPath: m_Name
-      value: RedFloor
+      value: GreenFloor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74f5b66048a694f6988c50a265a12dfb, type: 3}
