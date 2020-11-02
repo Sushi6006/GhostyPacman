@@ -9,8 +9,11 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
-# i guess this has to be included as well
+
+# custom 
 Library/
+Library/*
+Library/*.*
 Assets/*.meta
 Assets/**/*.meta
 
