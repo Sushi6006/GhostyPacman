@@ -16,6 +16,12 @@ Library/*
 Library/*.*
 Assets/*.meta
 Assets/**/*.meta
+/Library/
+/Library/*
+/Library/*.*
+/Assets/*.meta
+/Assets/**/*.meta
+
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
