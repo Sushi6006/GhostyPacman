@@ -29,7 +29,12 @@ Anyway. Enjoy.
     <td>
       <li>Player Movements</li>
       <li>NPC Developments</li>
-      <li>Game Mechanics</li>
+      <li>Game Mechanics
+        <ul>
+          <li>Eating pacdots and stuff</li>
+          <li>Eating ghosts</li>
+        </ul>
+      </li>
     </td>
   <tr>
   <tr>
@@ -44,7 +49,7 @@ Anyway. Enjoy.
     <td>Xubin Zou<br><code>@NicKZ-gene</code></td>
     <td>
       <li>Menu</li>
-      <li>Game UI</li>
+      <li>Game UI (including score systems)</li>
     </td>
   <tr>
   <tr>
