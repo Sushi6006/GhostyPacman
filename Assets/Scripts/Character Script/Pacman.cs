@@ -21,7 +21,15 @@ public class Pacman : MonoBehaviour
     private float floatSpeed = 5f;
     //floating scale
     private float floatScale = 0.05f;
-
+    //fps controller
+    public bool isFPS = false;
+    //classic controller
+    public bool isClassic = false;
+    private float coolDown = 0.25f;
+    private float lastChange = 0f;
+    public float turnspeed = 3.5f;
+    //the direction of rotation
+    Quaternion quaDir;
 
     /*gravity check*/
     private float gravity = 0;
@@ -67,12 +75,15 @@ public class Pacman : MonoBehaviour
     {   
         controller = GetComponent<CharacterController>();
         Cursor.visible = false;
+        isClassic = true;
     }
 
     // Update is called once per frame
     void Update()
     {   
         if (!isDead){
+            lastChange -= Time.deltaTime;
+
             Move();
 
             scoreText.text = "SCORE:" + score.ToString();
@@ -114,10 +125,6 @@ public class Pacman : MonoBehaviour
     // Move controller 
     void Move()
     {   
-        //level shift
-        moveDirec = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        moveDirec = transform.TransformDirection(moveDirec);
-
         //check gravity
         if (!controller.isGrounded)
         {   
@@ -129,15 +136,53 @@ public class Pacman : MonoBehaviour
             }
         }
         moveDirec.y += gravity;
-
-        //direction control by mouse
-        float mouseX = Input.GetAxis("Mouse X") * rotateSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * rotateSpeed;
-        transform.localRotation = transform.localRotation * Quaternion.Euler(0, mouseX, 0);
         
-
         //make pacman float
         moveDirec += Vector3.up * Mathf.Cos(Time.time * floatSpeed) * floatScale;
+
+        //fps controller
+        if (isFPS)
+        {
+            //level shift
+            moveDirec = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            moveDirec = transform.TransformDirection(moveDirec);
+
+            //direction control by mouse
+            float mouseX = Input.GetAxis("Mouse X") * rotateSpeed;
+            //float mouseY = Input.GetAxis("Mouse Y") * rotateSpeed;
+            transform.localRotation = transform.localRotation * Quaternion.Euler(0, mouseX, 0);
+        }
+        
+        //classic controller
+        else if (isClassic)
+        {   
+            //move forward
+            moveDirec = this.transform.forward;
+            if (lastChange < 0){
+                //control the direction
+                if (Input.GetKey("w") )
+                {
+                    //transform.localRotation = transform.localRotation * Quaternion.Euler(0, 0, 0);
+                }
+                if (Input.GetKey("s"))
+                {   
+                    quaDir = transform.localRotation * Quaternion.Euler(0, 180, 0);
+                    lastChange = coolDown;
+                }
+                if (Input.GetKey("a"))
+                {   
+                    quaDir = transform.localRotation * Quaternion.Euler(0, -90, 0);
+                    lastChange = coolDown;
+                }
+                if (Input.GetKey("d"))
+                {
+                
+                    quaDir = transform.localRotation * Quaternion.Euler(0, 90, 0);
+                    lastChange = coolDown;
+                }
+            }
+            transform.rotation = Quaternion.Lerp(transform.rotation, quaDir, Time.fixedDeltaTime * turnspeed);
+        }   
         controller.Move(moveDirec * Time.deltaTime * movementSpeed);
     }
 

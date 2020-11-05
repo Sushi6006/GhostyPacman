@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraControl : MonoBehaviour
-{
+{ 
+  /*prevent the camera from acrossing wall*/
   public Transform target;
   public Transform camera;
   public float m_distanceAway = 4.5f;
-  public float m_distanceUp = 1.5f;
 
   private Vector3 transformFirst = new Vector3(0f, 0f, 10f);
   private Vector3 rotationFirst = new Vector3(10f, 0f, 0f);

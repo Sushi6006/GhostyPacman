@@ -10,6 +10,7 @@ TagManager:
   - PowerPacdot
   - Shield
   - SpeedUp
+  - Wall
   layers:
   - Default
   - TransparentFX
