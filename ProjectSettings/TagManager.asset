@@ -8,6 +8,8 @@ TagManager:
   - PatrolGhost
   - ChasingGhost
   - PowerPacdot
+  - Shield
+  - SpeedUp
   layers:
   - Default
   - TransparentFX

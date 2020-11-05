@@ -6,22 +6,15 @@ using UnityEngine.UI;
 
 public class Pacman : MonoBehaviour
 {   
-    //movement attributes
+    /*movement attributes*/
     //the controller of pacman
     private CharacterController controller;
     //the speed of pacman's movement
-    private float movementSpeed = 10f;
-
+    private float movementSpeed = 5f;
     //mouse sensitivity
     public float rotateSpeed = 4f;
-
-    //gravity
-    private float gravity = 0;
-    //standard gravity
-    private float standardGravity = -10f;
-    //gravity acceleration
-    private float acceleration = -9.8f;
-
+    //standard movement speed
+    private float standardMovementSpeed = 5f;
     //the direction of pacman
     private Vector3 moveDirec;
     //floating speed
@@ -29,24 +22,45 @@ public class Pacman : MonoBehaviour
     //floating scale
     private float floatScale = 0.05f;
 
-    //powerPacdot
-    private bool isInvincible = false;
-    private float invincibleTime = 0f;
-    private float invincibleKeepTime = 5f;
 
+    /*gravity check*/
+    private float gravity = 0;
+    //standard gravity
+    private float standardGravity = -10f;
+    //gravity acceleration
+    private float acceleration = -9.8f;
+
+
+    /*UI part*/
     //player's score
     private int score = 0;
     public TextMeshProUGUI scoreText;
-
     //player's health
     public int health = 100;
     private bool isDead = false;
     public DeadMenuControl deadMenuControl;
-
     public MenuButton menuButton;
+
 
     // sfx
     public AudioSource eatSfx;
+
+
+    /*prop*/
+    //powerPacdot
+    private bool isInvincible = false;
+    private float invincibleTime = 0f;
+    private float invincibleKeepTime = 5f;
+    //speed up dot
+    private bool isSpeedUp = false;
+    private float acceleratedSpeed = 10f;
+    private float speedUpTime = 0f;
+    private float speedUpKeepTime = 5f;
+    //shield pacdot
+    private bool equipShield = false;
+    public GameObject shieldPrefab;
+    private GameObject currentShield = null;
+
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +74,10 @@ public class Pacman : MonoBehaviour
     {   
         if (!isDead){
             Move();
+
             scoreText.text = "SCORE:" + score.ToString();
+
+            //calculate invincible time
             if (isInvincible)
             {
                 invincibleTime -= Time.deltaTime;
@@ -69,13 +86,29 @@ public class Pacman : MonoBehaviour
                     isInvincible = false;
                 } 
             }
+
+            //calculate acceleration time
+            if (isSpeedUp)
+            {
+                speedUpTime -= Time.deltaTime;
+                if (speedUpTime <= 0)
+                {
+                    isSpeedUp = false;
+                    movementSpeed = standardMovementSpeed;
+                } 
+            }
+
+            //move shield with pacman
+            if (equipShield)
+            {
+                currentShield.transform.position = this.transform.position;
+            }
+
         }else{
             scoreText.enabled = false;
             Cursor.visible = true;
             deadMenuControl.toggleDeadMenu(score);
         }
-        print(score);
-        print(health);
     }
 
     // Move controller 
@@ -105,7 +138,6 @@ public class Pacman : MonoBehaviour
 
         //make pacman float
         moveDirec += Vector3.up * Mathf.Cos(Time.time * floatSpeed) * floatScale;
-
         controller.Move(moveDirec * Time.deltaTime * movementSpeed);
     }
 
@@ -114,6 +146,13 @@ public class Pacman : MonoBehaviour
     void OnTriggerEnter(Collider hit)
     {      
         GameObject target = hit.gameObject;
+        propCollision(target);
+        ghostCollision(target);
+    }
+
+    /*collide with props*/
+    void propCollision(GameObject target)
+    {
         //eat the pacdot
         if (target.tag == "pacdot")
         {   
@@ -130,7 +169,29 @@ public class Pacman : MonoBehaviour
             invincibleTime = invincibleKeepTime;
         }
 
-        //collision with ghost
+        //eat the speed up pacdot
+        if (target.tag == "SpeedUp")
+        {
+            Destroy(target);
+            isSpeedUp = true;
+            speedUpTime = speedUpKeepTime;
+            movementSpeed = acceleratedSpeed;
+        }
+
+        //eat the shield
+        if (target.tag == "Shield")
+        {
+            Destroy(target);
+            equipShield = true;
+            //generate the shield around pacman
+            GameObject newShield = (GameObject)Instantiate(shieldPrefab);
+            currentShield = newShield;
+        }
+    }
+
+    /*collide with ghost*/
+    void ghostCollision(GameObject target)
+    {
         //invincible status
         if (isInvincible)
         {
@@ -140,6 +201,16 @@ public class Pacman : MonoBehaviour
                 score += 10;
             }
         }
+        //with shield, defend ghost's attack
+        else if (equipShield)
+        {   
+            if (target.tag == "ChasingGhost" || target.tag == "PatrolGhost")
+            {
+                Destroy(currentShield);
+                equipShield = false;
+            }
+        }
+
         //not in invincible status
         else 
         {
@@ -159,6 +230,10 @@ public class Pacman : MonoBehaviour
             }
         }
     }
+
+
+
+
 
 
     /*
