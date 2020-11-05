@@ -10,7 +10,7 @@ public class Pacman : MonoBehaviour
     //the controller of pacman
     private CharacterController controller;
     //the speed of pacman's movement
-    private float movementSpeed = 5f;
+    public float movementSpeed = 5f;
     //mouse sensitivity
     public float rotateSpeed = 4f;
     //standard movement speed
@@ -258,7 +258,12 @@ public class Pacman : MonoBehaviour
 
         //not in invincible status
         else 
-        {
+        {   
+            if (target.tag == "Ghost")
+            {
+                isDead = true;
+            }
+            /*
             //chasing
             if (target.tag == "ChasingGhost")
             {   
@@ -273,6 +278,7 @@ public class Pacman : MonoBehaviour
                 //GameObject.Find("PatrolGhost_A").GetComponent<PatrolGhostA>().attackPacman();
                 //ghostScript.attackPacman();
             }
+            */
         }
     }
 

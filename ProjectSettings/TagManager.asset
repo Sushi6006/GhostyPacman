@@ -11,6 +11,8 @@ TagManager:
   - Shield
   - SpeedUp
   - Wall
+  - AssaultGhost
+  - Ghost
   layers:
   - Default
   - TransparentFX

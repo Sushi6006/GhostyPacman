@@ -5,8 +5,8 @@ using UnityEngine;
 public class CameraControl : MonoBehaviour
 { 
   /*prevent the camera from acrossing wall*/
-  public Transform target;
-  public Transform camera;
+  public GameObject target;
+  public GameObject camera;
   public float m_distanceAway = 4.5f;
 
   private Vector3 transformFirst = new Vector3(0f, 0f, 10f);
@@ -21,7 +21,7 @@ public class CameraControl : MonoBehaviour
   private float times = 0.25f;
   private float cooldown = 0.25f;
     void Start(){
-
+    
     }
 
     void Update()
@@ -55,18 +55,18 @@ public class CameraControl : MonoBehaviour
       //the line between camera and the object in the view of camera
       RaycastHit hit;
 
-      if (Physics.Linecast(target.position + Vector3.up,camera.position, out hit))
+      if (Physics.Linecast(target.transform.position + Vector3.up, camera.transform.position, out hit))
       {
         string name = hit.collider.gameObject.tag;
         if (name != "MainCamera")
         {
           //get the distance between camera and player
-          float currentDistance = Vector3.Distance(hit.point,target.position);
+          float currentDistance = Vector3.Distance(hit.point, target.transform.position);
           
           //zoom camera while the hitted object is wall
           if (currentDistance < m_distanceAway)
           {
-            camera.position = hit.point;
+            camera.transform.position = hit.point;
           }
         }
       }
