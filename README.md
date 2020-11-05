@@ -69,7 +69,7 @@ You can use emojis :+1: but do not over use it, we are looking for professional 
 	
 ## Technologies
 Project is created with:
-* Unity 2019.4.3f1
+* Unity 2019.4.8f1
 * Ipsum version: 2.33
 * Ament library version: 999
 
