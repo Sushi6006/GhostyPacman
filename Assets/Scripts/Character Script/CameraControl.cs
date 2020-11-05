@@ -6,7 +6,7 @@ public class CameraControl : MonoBehaviour
 { 
   /*prevent the camera from acrossing wall*/
   public GameObject target;
-  public GameObject camera;
+  public Camera camera;
   public float m_distanceAway = 4.5f;
 
   private Vector3 transformFirst = new Vector3(0f, 0f, 10f);

@@ -240,7 +240,7 @@ public class Pacman : MonoBehaviour
         //invincible status
         if (isInvincible)
         {
-            if (target.tag == "ChasingGhost" || target.tag == "PatrolGhost")
+            if (target.tag == "Ghost")
             {
                 Destroy(target);
                 score += 10;
@@ -249,8 +249,9 @@ public class Pacman : MonoBehaviour
         //with shield, defend ghost's attack
         else if (equipShield)
         {   
-            if (target.tag == "ChasingGhost" || target.tag == "PatrolGhost")
-            {
+            print(target.tag);
+            if (target.tag == "Ghost")
+            {   
                 Destroy(currentShield);
                 equipShield = false;
             }
