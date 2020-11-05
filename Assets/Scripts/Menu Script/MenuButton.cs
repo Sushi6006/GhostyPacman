@@ -31,6 +31,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if(mouse_over){
             menuController.resetIndexOfButton();
             animator.SetBool ("selected", true);
+            Debug.Log("The selected is suss");
             if(Input.GetAxis("Submit") == 1 || Input.GetMouseButton(0)){
                 animator.SetBool("Click", true);
             
@@ -40,8 +41,8 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             }else if(!mouse_over){
                 animator.SetBool("selected",false);
             }
+
         }else{
-            
             if(menuController.indexOfButton == thisIndex){
                 animator.SetBool ("selected", true);
 
@@ -75,7 +76,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 
     public void switchScene(){
-        SceneManager.LoadScene("Project");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void EndGame(){

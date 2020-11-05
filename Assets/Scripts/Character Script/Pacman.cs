@@ -74,8 +74,6 @@ public class Pacman : MonoBehaviour
             Cursor.visible = true;
             deadMenuControl.toggleDeadMenu(score);
         }
-        print(score);
-        print(health);
     }
 
     // Move controller 
