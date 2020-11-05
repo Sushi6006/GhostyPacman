@@ -25,7 +25,7 @@ Anyway. Enjoy.
     <th>Task</th>
   </tr>
   <tr>
-    <td>Wei Ge<br>`@gewg`</td>
+    <td>Wei Ge<br><code>@gewg</code></td>
     <td>
       <li>Player Movements</li>
       <li>NPC Developments</li>
@@ -33,7 +33,7 @@ Anyway. Enjoy.
     </td>
   <tr>
   <tr>
-    <td>Leyan Lin<br>`@Sushi6006`</td>
+    <td>Leyan Lin<br><code>@Sushi6006</code></td>
     <td>
       <li>Music</li>
       <li>Sound Effects</li>
@@ -41,14 +41,14 @@ Anyway. Enjoy.
     </td>
   <tr>
   <tr>
-    <td>Xubin Zou<br>`@NicKZ-gene`</td>
+    <td>Xubin Zou<br><code>@NicKZ-gene</code></td>
     <td>
       <li>Menu</li>
       <li>Game UI</li>
     </td>
   <tr>
   <tr>
-    <td>Chang Shen<br>`@ChangShen0925`</td>
+    <td>Chang Shen<br><code>@ChangShen0925</code></td>
     <td>
       <li>Map (first version)</li>
     </td>
