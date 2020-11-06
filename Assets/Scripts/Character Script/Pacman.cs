@@ -126,8 +126,10 @@ public class Pacman : MonoBehaviour
             scoreText.enabled = false;
             Cursor.visible = true;
             deadMenuControl.toggleDeadMenu(score);
+            Camera.main.transform.parent = null;
+
+            Destroy(gameObject);
             
-            //Destroy(gameObject);
             
         }
     }
