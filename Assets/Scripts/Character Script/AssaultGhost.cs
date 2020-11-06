@@ -8,13 +8,13 @@ public class AssaultGhost : MonoBehaviour
     public GameObject target;
 
     //patrol position
-    Vector3 pointA = new Vector3(45f, 6f, 24.4f);
-    Vector3 pointB = new Vector3(14.5f, 6f, 0.3f);
-    Vector3 pointC = new Vector3(9.3f, 6f, -25f);
+    Vector3 pointA = new Vector3(4f, 6f, 25f);
+    Vector3 pointB = new Vector3(43f, 6f, 0f);
+    Vector3 pointC = new Vector3(5f, 6f, -20f);
     Vector3 currentPoint;
 
     //chase pacman
-    private float chaseRadius = 10f;
+    public float chaseRadius = 8f;
     private float diatanceToPlayer;
     private bool isChasing = false;
 
@@ -91,7 +91,7 @@ public class AssaultGhost : MonoBehaviour
 
     /*check wether the pacman in the attacking radius*/
     private void chaseCheck()
-    {
+    {   
         if (Vector3.Distance(agent.transform.position, target.transform.position) < chaseRadius)
         {   
             isChasing = true;

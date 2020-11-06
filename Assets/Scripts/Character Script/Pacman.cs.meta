@@ -3,7 +3,12 @@ guid: ba57c57fb91786644ab549e52c9909a7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - scoreText: {instanceID: 0}
+  - deadMenuControl: {instanceID: 0}
+  - menuButton: {instanceID: 0}
+  - eatSfx: {instanceID: 0}
+  - shieldPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
