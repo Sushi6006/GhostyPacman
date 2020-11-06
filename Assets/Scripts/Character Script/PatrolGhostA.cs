@@ -8,9 +8,9 @@ public class PatrolGhostA : MonoBehaviour
     public GameObject target;
 
     //patrol position
-    Vector3 pointA = new Vector3(29.5f, 2f, 29.5f);
-    Vector3 pointB = new Vector3(-26.5f, 2f, 25.5f);
-    Vector3 pointC = new Vector3(21.5f, 2f, 21.5f);
+    Vector3 pointA = new Vector3(3.2f, 6f, -24f);
+    Vector3 pointB = new Vector3(44.5f, 6f, -24f);
+    Vector3 pointC = new Vector3(24f, 6f, -5f);
 
     //check whether the ghost exist somewhere
     Collider box;

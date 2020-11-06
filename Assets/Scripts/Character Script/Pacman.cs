@@ -6,61 +6,89 @@ using UnityEngine.UI;
 
 public class Pacman : MonoBehaviour
 {   
-    //movement attributes
+    /*movement attributes*/
     //the controller of pacman
     private CharacterController controller;
     //the speed of pacman's movement
-    private float movementSpeed = 10f;
-
+    public float movementSpeed = 5f;
     //mouse sensitivity
     public float rotateSpeed = 4f;
-
-    //gravity
-    private float gravity = 0;
-    //standard gravity
-    private float standardGravity = -10f;
-    //gravity acceleration
-    private float acceleration = -9.8f;
-
+    //standard movement speed
+    private float standardMovementSpeed = 5f;
     //the direction of pacman
     private Vector3 moveDirec;
     //floating speed
     private float floatSpeed = 5f;
     //floating scale
     private float floatScale = 0.05f;
+    //fps controller
+    public bool isFPS = false;
+    //classic controller
+    public bool isClassic = false;
+    private float coolDown = 0.25f;
+    private float lastChange = 0f;
+    public float turnspeed = 3.5f;
+    //the direction of rotation
+    Quaternion quaDir;
 
-    //powerPacdot
-    private bool isInvincible = false;
-    private float invincibleTime = 0f;
-    private float invincibleKeepTime = 5f;
+    /*gravity check*/
+    private float gravity = 0;
+    //standard gravity
+    private float standardGravity = -10f;
+    //gravity acceleration
+    private float acceleration = -9.8f;
 
+
+    /*UI part*/
     //player's score
     private int score = 0;
     public TextMeshProUGUI scoreText;
-
     //player's health
     public int health = 100;
     private bool isDead = false;
     public DeadMenuControl deadMenuControl;
-
     public MenuButton menuButton;
+
 
     // sfx
     public AudioSource eatSfx;
+
+
+    /*prop*/
+    //powerPacdot
+    private bool isInvincible = false;
+    private float invincibleTime = 0f;
+    private float invincibleKeepTime = 5f;
+    //speed up dot
+    private bool isSpeedUp = false;
+    private float acceleratedSpeed = 10f;
+    private float speedUpTime = 0f;
+    private float speedUpKeepTime = 5f;
+    //shield pacdot
+    private bool equipShield = false;
+    public GameObject shieldPrefab;
+    private GameObject currentShield = null;
+
 
     // Start is called before the first frame update
     void Start()
     {   
         controller = GetComponent<CharacterController>();
         Cursor.visible = false;
+        isClassic = true;
     }
 
     // Update is called once per frame
     void Update()
     {   
         if (!isDead){
+            lastChange -= Time.deltaTime;
+
             Move();
+
             scoreText.text = "SCORE:" + score.ToString();
+
+            //calculate invincible time
             if (isInvincible)
             {
                 invincibleTime -= Time.deltaTime;
@@ -69,22 +97,34 @@ public class Pacman : MonoBehaviour
                     isInvincible = false;
                 } 
             }
+
+            //calculate acceleration time
+            if (isSpeedUp)
+            {
+                speedUpTime -= Time.deltaTime;
+                if (speedUpTime <= 0)
+                {
+                    isSpeedUp = false;
+                    movementSpeed = standardMovementSpeed;
+                } 
+            }
+
+            //move shield with pacman
+            if (equipShield)
+            {
+                currentShield.transform.position = this.transform.position;
+            }
+
         }else{
             scoreText.enabled = false;
             Cursor.visible = true;
             deadMenuControl.toggleDeadMenu(score);
         }
-        print(score);
-        print(health);
     }
 
     // Move controller 
     void Move()
     {   
-        //level shift
-        moveDirec = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        moveDirec = transform.TransformDirection(moveDirec);
-
         //check gravity
         if (!controller.isGrounded)
         {   
@@ -96,16 +136,53 @@ public class Pacman : MonoBehaviour
             }
         }
         moveDirec.y += gravity;
-
-        //direction control by mouse
-        float mouseX = Input.GetAxis("Mouse X") * rotateSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * rotateSpeed;
-        transform.localRotation = transform.localRotation * Quaternion.Euler(0, mouseX, 0);
         
-
         //make pacman float
         moveDirec += Vector3.up * Mathf.Cos(Time.time * floatSpeed) * floatScale;
 
+        //fps controller
+        if (isFPS)
+        {
+            //level shift
+            moveDirec = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            moveDirec = transform.TransformDirection(moveDirec);
+
+            //direction control by mouse
+            float mouseX = Input.GetAxis("Mouse X") * rotateSpeed;
+            //float mouseY = Input.GetAxis("Mouse Y") * rotateSpeed;
+            transform.localRotation = transform.localRotation * Quaternion.Euler(0, mouseX, 0);
+        }
+        
+        //classic controller
+        else if (isClassic)
+        {   
+            //move forward
+            moveDirec = this.transform.forward;
+            if (lastChange < 0){
+                //control the direction
+                if (Input.GetKey("w") )
+                {
+                    //transform.localRotation = transform.localRotation * Quaternion.Euler(0, 0, 0);
+                }
+                if (Input.GetKey("s"))
+                {   
+                    quaDir = transform.localRotation * Quaternion.Euler(0, 180, 0);
+                    lastChange = coolDown;
+                }
+                if (Input.GetKey("a"))
+                {   
+                    quaDir = transform.localRotation * Quaternion.Euler(0, -90, 0);
+                    lastChange = coolDown;
+                }
+                if (Input.GetKey("d"))
+                {
+                
+                    quaDir = transform.localRotation * Quaternion.Euler(0, 90, 0);
+                    lastChange = coolDown;
+                }
+            }
+            transform.rotation = Quaternion.Lerp(transform.rotation, quaDir, Time.fixedDeltaTime * turnspeed);
+        }   
         controller.Move(moveDirec * Time.deltaTime * movementSpeed);
     }
 
@@ -114,6 +191,13 @@ public class Pacman : MonoBehaviour
     void OnTriggerEnter(Collider hit)
     {      
         GameObject target = hit.gameObject;
+        propCollision(target);
+        ghostCollision(target);
+    }
+
+    /*collide with props*/
+    void propCollision(GameObject target)
+    {
         //eat the pacdot
         if (target.tag == "pacdot")
         {   
@@ -130,19 +214,57 @@ public class Pacman : MonoBehaviour
             invincibleTime = invincibleKeepTime;
         }
 
-        //collision with ghost
+        //eat the speed up pacdot
+        if (target.tag == "SpeedUp")
+        {
+            Destroy(target);
+            isSpeedUp = true;
+            speedUpTime = speedUpKeepTime;
+            movementSpeed = acceleratedSpeed;
+        }
+
+        //eat the shield
+        if (target.tag == "Shield")
+        {
+            Destroy(target);
+            equipShield = true;
+            //generate the shield around pacman
+            GameObject newShield = (GameObject)Instantiate(shieldPrefab);
+            currentShield = newShield;
+        }
+    }
+
+    /*collide with ghost*/
+    void ghostCollision(GameObject target)
+    {
         //invincible status
         if (isInvincible)
         {
-            if (target.tag == "ChasingGhost" || target.tag == "PatrolGhost")
+            if (target.tag == "Ghost")
             {
                 Destroy(target);
                 score += 10;
             }
         }
+        //with shield, defend ghost's attack
+        else if (equipShield)
+        {   
+            print(target.tag);
+            if (target.tag == "Ghost")
+            {   
+                Destroy(currentShield);
+                equipShield = false;
+            }
+        }
+
         //not in invincible status
         else 
-        {
+        {   
+            if (target.tag == "Ghost")
+            {
+                isDead = true;
+            }
+            /*
             //chasing
             if (target.tag == "ChasingGhost")
             {   
@@ -157,8 +279,13 @@ public class Pacman : MonoBehaviour
                 //GameObject.Find("PatrolGhost_A").GetComponent<PatrolGhostA>().attackPacman();
                 //ghostScript.attackPacman();
             }
+            */
         }
     }
+
+
+
+
 
 
     /*

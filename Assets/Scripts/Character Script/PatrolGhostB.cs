@@ -8,8 +8,9 @@ public class PatrolGhostB : MonoBehaviour
     public GameObject target;
 
     //patrol position
-    Vector3 pointA = new Vector3(-30.5f, 2f, -30.5f);
-    Vector3 pointB = new Vector3(29.5f, 2f, -30.5f);
+    Vector3 pointA = new Vector3(44.3f, 6f, 24.3f);
+    Vector3 pointB = new Vector3(23.8f, 6f, 5.1f);
+    Vector3 pointC = new Vector3(3f, 6f, 25f);
 
     //check whether the ghost exist somewhere
     Collider box;
@@ -57,7 +58,11 @@ public class PatrolGhostB : MonoBehaviour
         {   
             agent.destination = pointB;
         }
-        else if (box.bounds.Contains(pointB) && Vector3.Distance(agent.destination, pointA) > 10)
+        else if (box.bounds.Contains(pointB) && Vector3.Distance(agent.destination, pointC) > 10)
+        {   
+            agent.destination = pointC;
+        }
+        else if (box.bounds.Contains(pointC) && Vector3.Distance(agent.destination, pointA) > 10)
         {   
             agent.destination = pointA;
         }
