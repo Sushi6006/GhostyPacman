@@ -6,26 +6,32 @@ public class CameraControl : MonoBehaviour
 { 
   /*prevent the camera from acrossing wall*/
   public GameObject target;
-  public Camera camera;
-  public float m_distanceAway = 4.5f;
+  public float m_distanceAway = 5f;
 
   private Vector3 transformFirst = new Vector3(0f, 0f, 10f);
   private Vector3 rotationFirst = new Vector3(10f, 0f, 0f);
 
-  private Vector3 transformThird = new Vector3(0f, 100f, -150f);
-  private Vector3 rotationThird = new Vector3(20f, 0f, 0f);
+  private Vector3 transformThird = new Vector3(0f, 40f, -60f);
+  private Vector3 rotationThird = new Vector3(10f, 0f, 0f);
 
   private bool isFirst = false;
 
   //switch view's cooldown
   private float times = 0.25f;
   private float cooldown = 0.25f;
+  private float distance = 0f;
+
     void Start(){
     
     }
 
     void Update()
     { 
+      if (!isFirst)
+      {
+        transform.localPosition = transformThird;
+      }
+
       cameraHitCheck();
 
       //the time check the view's switch cooldown
@@ -55,7 +61,7 @@ public class CameraControl : MonoBehaviour
       //the line between camera and the object in the view of camera
       RaycastHit hit;
 
-      if (Physics.Linecast(target.transform.position + Vector3.up, camera.transform.position, out hit))
+      if (Physics.Linecast(target.transform.position + Vector3.up, transform.position, out hit))
       {
         string name = hit.collider.gameObject.tag;
         if (name != "MainCamera")
@@ -66,9 +72,11 @@ public class CameraControl : MonoBehaviour
           //zoom camera while the hitted object is wall
           if (currentDistance < m_distanceAway)
           {
-            camera.transform.position = hit.point;
+            transform.position = hit.point;
           }
         }
       }
     }
+
+    
  }
