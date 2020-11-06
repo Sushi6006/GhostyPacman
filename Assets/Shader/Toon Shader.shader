@@ -95,7 +95,6 @@
 
 				// Lighting below is calculated using Blinn-Phong,
 				// with values thresholded to creat the "toon" look.
-				// https://en.wikipedia.org/wiki/Blinn-Phong_shading_model
 
 				// Calculate illumination from directional light.
 				// _WorldSpaceLightPos0 is a vector pointing the OPPOSITE
