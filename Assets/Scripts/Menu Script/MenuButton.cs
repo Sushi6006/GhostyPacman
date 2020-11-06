@@ -11,6 +11,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] MenuController menuController;
     [SerializeField] Animator animator;
     [SerializeField] MenuAnimationControl menuAnimationControl;
+    [SerializeField] GameObject MainMenu;
     [SerializeField] int thisIndex;
     [SerializeField] bool mouse_over = false;
 
@@ -31,13 +32,13 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if(mouse_over){
             menuController.resetIndexOfButton();
             animator.SetBool ("selected", true);
-            Debug.Log("The selected is suss");
             if(Input.GetAxis("Submit") == 1 || Input.GetMouseButton(0)){
                 animator.SetBool("Click", true);
             
             }else if(animator.GetBool("Click")){
                 animator.SetBool("Click", false);
                 menuAnimationControl.disableOnce = true;
+                mouse_over = false;
             }else if(!mouse_over){
                 animator.SetBool("selected",false);
             }
@@ -48,6 +49,7 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
                 if(Input.GetAxis("Submit") == 1){
                     animator.SetBool("Click", true);
+                    
 
                 }else if(animator.GetBool("Click")){
                     animator.SetBool("Click", false);
@@ -56,10 +58,12 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             }else{
                 animator.SetBool("selected", false);
             }
-
         }
+        if(!MainMenu.active){
+            mouse_over = false;       
         
         
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -79,10 +83,16 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         SceneManager.LoadScene("MainScene");
     }
 
+    public void changeMouse(){
+        mouse_over = false;
+    }
+
+
     public void EndGame(){
         //Application.Quit();
         UnityEditor.EditorApplication.isPlaying = false;
     }
-
 }
+
+
     
