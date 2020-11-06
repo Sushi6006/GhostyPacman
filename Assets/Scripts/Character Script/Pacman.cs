@@ -49,6 +49,8 @@ public class Pacman : MonoBehaviour
     public DeadMenuControl deadMenuControl;
     public MenuButton menuButton;
 
+    //Effect part
+    public GameObject deathEffect;
 
     // sfx
     public AudioSource eatSfx;
@@ -68,6 +70,8 @@ public class Pacman : MonoBehaviour
     private bool equipShield = false;
     public GameObject shieldPrefab;
     private GameObject currentShield = null;
+
+
 
 
     // Start is called before the first frame update
@@ -116,9 +120,15 @@ public class Pacman : MonoBehaviour
             }
 
         }else{
+            //让特效出来的，不要删a酱
+            //把相机搞出去就行了
+            Instantiate(deathEffect, transform.position, transform.rotation);
             scoreText.enabled = false;
             Cursor.visible = true;
             deadMenuControl.toggleDeadMenu(score);
+            
+            //Destroy(gameObject);
+            
         }
     }
 

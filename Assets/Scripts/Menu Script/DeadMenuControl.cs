@@ -9,6 +9,7 @@ public class DeadMenuControl : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public MenuController menuController;
+    public Button PauseButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,9 @@ public class DeadMenuControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(gameObject.active){
+            PauseButton.interactable = false;
+        }
         
     }
 
