@@ -74,13 +74,13 @@ public class Pacman : MonoBehaviour
     void Start()
     {   
         controller = GetComponent<CharacterController>();
-        Cursor.visible = false;
         isClassic = true;
     }
 
     // Update is called once per frame
     void Update()
     {   
+        Cursor.visible = false;
         if (!isDead){
             lastChange -= Time.deltaTime;
 
@@ -249,7 +249,6 @@ public class Pacman : MonoBehaviour
         //with shield, defend ghost's attack
         else if (equipShield)
         {   
-            print(target.tag);
             if (target.tag == "Ghost")
             {   
                 Destroy(currentShield);
