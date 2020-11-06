@@ -14,7 +14,9 @@ Pac-Man is originally developed and released in 1980 by the Japanese company, Na
 <!-- omit in toc -->
 ## Table of contents
 - [Team Members](#team-members)
-- [Explanation of the game](#explanation-of-the-game)
+- [Explanation of the Game](#explanation-of-the-game)
+  - [How to Run](#how-to-run)
+  - [How to Play](#how-to-play)
 - [Technologies](#technologies)
 
 <br><br>
@@ -65,7 +67,22 @@ Pac-Man is originally developed and released in 1980 by the Japanese company, Na
 </table>
 <br><br>
 
-## Explanation of the game
+## Explanation of the Game
+
+### How to Run
+1. Clone this repository with the command
+   `git clone https://github.com/Graphics-and-Interaction-COMP30019/project-2-project2_group_33.git ReimaginedPotato`
+2. Import the folder `ReimaginedPotato` as an Unity project in *Unity Hub*.
+3. click da lil play button lah
+4. If it does not work, the reason may be, according to our past experience, because of different platforms (i.e. Windows/macOS). `Reimport All` solves the problem.
+
+**OR**
+
+Simply open the `GhostyPacman.exe` or `GhostyPacman.app` depending on your operating system and that should be working just fine.
+
+<br><br>
+
+### How to Play
 
 <br><br>
 	
@@ -75,13 +92,13 @@ Project is created with:
 
 Tools we have used:
 - Windows 10 (Wei) / macOS Catalina (Others)
-- Git/GitHub (for version control and collaboration)
-- WeChat/Discord/Zoom (for communications)
-- VS Code (for writing C# code)
-- Photoshop (for icons and buttons)
-- Bfxr (for sound effects)
-- Bosca Ceoil (for music)
-- Google/YouTube/StackOverflow/UnityDocumentation/UnityForum (for learning)
+- Git/GitHub *(for version control and collaboration)*
+- WeChat/Discord/Zoom *(for communications)*
+- VS Code *(for writing C# code)*
+- Photoshop *(for icons and buttons)*
+- Bfxr *(for sound effects)*
+- Bosca Ceoil *(for music)*
+- Google/YouTube/StackOverflow/UnityDocumentation/UnityForum *(for learning)*
   - special thanks to: [Brackeys (YouTube)](https://www.youtube.com/user/Brackeys)
 
 <br><br>
