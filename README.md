@@ -1,97 +1,104 @@
-**The University of Melbourne**
+**The University of Melbourne**\
+**COMP30019 – Graphics and Interaction**
 <!-- omit in toc -->
-# COMP30019 – Graphics and Interaction
+# GHOSTY PACMAN - Group 33 Reimagined Potato
+We re-created Pac-Man in 3D. [Watch Game Trailor on YouTube](https://youtu.be/c720pBMu_3k).<br><br>
+Pac-Man is originally developed and released in 1980 by the Japanese company, Namco (Puck Man). It becomes one of the most successful arcade game in the history. Over the years, a lot of variations emerge from different places across the whole world. 40 years later, we, Reimagined Potato, decided to recreate the game, but in 3D. Upon this stage, we have created a working version of this game for both Windows and Mac; however, this is NOT our destination. Soonly enough, we will create VR version of this game and let the hard-core gamers to have the opportunity to enjoy the classic classic old but gold game.<br><br>
+***Anyway. Enjoy.***
+<br><br>
 
-Final Electronic Submission (project): **4pm, Fri. 6 November**
-
-Do not forget **One member** of your group must submit a text file to the LMS (Canvas) by the due date which includes the commit ID of your final submission.
-
-You can add a link to your Gameplay Video here but you must have already submit it by **4pm, Sun. 25 October**
 
 <!-- omit in toc -->
 # Project-2 README
 
-You must modify this `README.md` that describes your application, specifically what it does, how to use it, and how you evaluated and improved it.
-
-Remember that _"this document"_ should be `well written` and formatted **appropriately**. This is just an example of different formating tools available for you. For help with the format you can find a guide [here](https://docs.github.com/en/github/writing-on-github).
-
-
-**Get ready to complete all the tasks:**
-
-- [x] Read the handout for Project-2 carefully
-
-- [ ] Brief explanation of the game
-
-- [ ] How to use it (especially the user interface aspects)
-
-- [ ] How you modelled objects and entities
-
-- [ ] How you handled the graphics pipeline and camera motion
-
-- [ ] Descriptions of how the shaders work
-
-- [ ] Description of the querying and observational methods used, including: description of the participants (how many, demographics), description of the methodology (which techniques did you use, what did you have participants do, how did you record the data), and feedback gathered.
-
-- [ ] Document the changes made to your game based on the information collected during the evaluation.
-
-- [ ] A statement about any code/APIs you have sourced/used from the internet that is not your own.
-
-- [ ] A description of the contributions made by each member of the group.
-
 <!-- omit in toc -->
 ## Table of contents
 - [Team Members](#team-members)
-- [Explanation of the game](#explanation-of-the-game)
+- [Explanation of the Game](#explanation-of-the-game)
+  - [How to Run](#how-to-run)
+  - [How to Play](#how-to-play)
 - [Technologies](#technologies)
-- [Using Images](#using-images)
-- [Code Snippets](#code-snippets)
+
+<br><br>
 
 ## Team Members
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Task</th>
+  </tr>
+  <tr>
+    <td>Wei Ge<br><code>@gewg</code></td>
+    <td>
+      <li>Player Movements</li>
+      <li>NPC Developments</li>
+      <li>Game Mechanics
+        <ul>
+          <li>Eating pacdots and stuff</li>
+          <li>Eating ghosts</li>
+        </ul>
+      </li>
+    </td>
+  <tr>
+  <tr>
+    <td>Leyan Lin<br><code>@Sushi6006</code></td>
+    <td>
+      <li>Music</li>
+      <li>Sound Effects</li>
+      <li>Map Creation</li>
+      <li>Documentations</li>
+    </td>
+  <tr>
+  <tr>
+    <td>Xubin Zou<br><code>@NicKZ-gene</code></td>
+    <td>
+      <li>Menu</li>
+      <li>Game UI (including score systems)</li>
+      <li>Particle System</li>
+      <li>Aesthetics</li>
+    </td>
+  <tr>
+  <tr>
+    <td>Chang Shen<br><code>@ChangShen0925</code></td>
+    <td>
+      <li>Map (first version)</li>
+    </td>
+  </tr>
+</table>
+<br><br>
 
-| Name | Task | State |
-| :---         |     :---:      |          ---: |
-| Student Name 1  | MainScene     |  Done |
-| Student Name 2    | Shader      |  Testing |
-| Student Name 3    | README Format      |  Amazing! |
+## Explanation of the Game
 
-## Explanation of the game
-Our game is a first person shooter (FPS) that....
+### How to Run
+1. Clone this repository with the command
+   `git clone https://github.com/Graphics-and-Interaction-COMP30019/project-2-project2_group_33.git ReimaginedPotato`
+2. Import the folder `ReimaginedPotato` as an Unity project in *Unity Hub*.
+3. click da lil play button lah
+4. If it does not work, the reason may be, according to our past experience, because of different platforms (i.e. Windows/macOS). `Reimport All` solves the problem.
 
-You can use emojis :+1: but do not over use it, we are looking for professional work. If you would not add them in your job, do not use them here! :shipit:
+**OR**
 
+Simply open the `GhostyPacman.exe` or `GhostyPacman.app` depending on your operating system and that should be working just fine.
+
+<br><br>
+
+### How to Play
+
+<br><br>
 	
 ## Technologies
 Project is created with:
-* Unity 2019.4.3f1
-* Ipsum version: 2.33
-* Ament library version: 999
+- Unity 2019.4.8f1
 
-## Using Images
+Tools we have used:
+- Windows 10 (Wei) / macOS Catalina (Others)
+- Git/GitHub *(for version control and collaboration)*
+- WeChat/Discord/Zoom *(for communications)*
+- VS Code *(for writing C# code)*
+- Photoshop *(for icons and buttons)*
+- Bfxr *(for sound effects)*
+- Bosca Ceoil *(for music)*
+- Google/YouTube/StackOverflow/UnityDocumentation/UnityForum *(for learning)*
+  - special thanks to: [Brackeys (YouTube)](https://www.youtube.com/user/Brackeys)
 
-You can use images/gif by adding them to a folder in your repo:
-
-<p align="center">
-  <img src="Gifs/Q1-1.gif"  width="300" >
-</p>
-
-To create a gif from a video you can follow this [link](https://ezgif.com/video-to-gif/ezgif-6-55f4b3b086d4.mov).
-
-## Code Snippets 
-
-You can include a code snippet here, but make sure to explain it! 
-Do not just copy all your code, only explain the important parts.
-
-```c#
-public class firstPersonController : MonoBehaviour
-{
-    //This function run once when Unity is in Play
-     void Start ()
-    {
-      standMotion();
-    }
-}
-```
-
-
-
-
+<br><br>
