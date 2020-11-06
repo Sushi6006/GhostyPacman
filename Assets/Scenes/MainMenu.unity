@@ -578,7 +578,7 @@ MonoBehaviour:
   menuController: {fileID: 936110084}
   animator: {fileID: 0}
   menuAnimationControl: {fileID: 0}
-  MainMenu: {fileID: 0}
+  MainMenu: {fileID: 372241048}
   thisIndex: -10
   mouse_over: 0
 --- !u!224 &372734535 stripped

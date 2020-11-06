@@ -62,7 +62,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if(!MainMenu.active){
             mouse_over = false;       
         
-        
         }
     }
 
