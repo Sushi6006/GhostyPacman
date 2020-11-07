@@ -9,7 +9,7 @@ Pac-Man is originally developed and released in 1980 by the Japanese company, Na
 
 
 <!-- omit in toc -->
-# Project-2 README
+# GHOSTY PACMAN  README
 
 <!-- omit in toc -->
 ## Table of contents
@@ -98,7 +98,9 @@ Tools we have used:
 - Photoshop *(for icons and buttons)*
 - Bfxr *(for sound effects)*
 - Bosca Ceoil *(for music)*
+- ProBuilder & ProGrid in Unity *(for map creation)*
 - Google/YouTube/StackOverflow/UnityDocumentation/UnityForum *(for learning)*
   - special thanks to: [Brackeys (YouTube)](https://www.youtube.com/user/Brackeys)
 
 <br><br>
+
