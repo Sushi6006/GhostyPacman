@@ -47,12 +47,8 @@ public class Pacman : MonoBehaviour
     public int health = 100;
     private bool isDead = false;
     public DeadMenuControl deadMenuControl;
-    
+    public MenuButton menuButton;
 
-    //Effect part
-    public GameObject deathEffect;
-    public GameObject objectToDisappear;
-    private bool effectRun = false;
 
     // sfx
     public AudioSource eatSfx;
@@ -72,8 +68,6 @@ public class Pacman : MonoBehaviour
     private bool equipShield = false;
     public GameObject shieldPrefab;
     private GameObject currentShield = null;
-
-
 
 
     // Start is called before the first frame update
@@ -122,27 +116,11 @@ public class Pacman : MonoBehaviour
             }
 
         }else{
-            //Run the particle effect only once
-            if(!effectRun){
-                Instantiate(deathEffect, transform.position, transform.rotation);
-                effectRun = true;
-            }
             scoreText.enabled = false;
             Cursor.visible = true;
-            
-            
-            
             deadMenuControl.toggleDeadMenu(score);
             
-
-            objectToDisappear.GetComponent<Renderer>().enabled = false;
-              
         }
-        
-    }
-
-    public bool checkDead(){
-        return isDead;
     }
 
     // Move controller 
@@ -225,7 +203,8 @@ public class Pacman : MonoBehaviour
         if (target.tag == "pacdot")
         {   
             eatSfx.Play();
-            Destroy(target);
+            target.SetActive(false);
+            print("AAA");
             score ++;
         }
 
