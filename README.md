@@ -3,8 +3,7 @@
 <!-- omit in toc -->
 # GHOSTY PACMAN - Group 33 Reimagined Potato
 We re-created Pac-Man in 3D. [Watch Game Trailer on YouTube](https://youtu.be/c720pBMu_3k).<br>
-[![](https://youtu.be/c720pBMu_3k/0.jpg)](https://youtu.be/c720pBMu_3k)
-
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/c720pBMu_3k/0.jpg)](https://youtu.be/c720pBMu_3k)
 <br>
 
 Pac-Man was originally developed and released in 1980 by the Japanese company, Namco (Puck Man). It became one of the most successful arcade games in history. Over the years, a lot of variations emerge from different places across the whole world. 40 years later, we, Reimagined Potato, decided to recreate the game, but in 3D. Upon this stage, we have created a working version of this game for both Windows and Mac; however, this is NOT our destination. Soonly enough, we will create VR version of this game and let the hard-core gamers to have the opportunity to enjoy the classic classic old but gold game.<br><br>
