@@ -50,7 +50,10 @@ public class Pacman : MonoBehaviour
     
 
     //Effect part
-    public GameObject deathEffect;
+    public GameObject MainDeathEffect;
+    public GameObject PatrolDeathEffect;
+    public GameObject ChasingDeathEffect;
+    public GameObject AssDeathEffect;
     public GameObject objectToDisappear;
     private bool effectRun = false;
 
@@ -124,7 +127,7 @@ public class Pacman : MonoBehaviour
         }else{
             //Run the particle effect only once
             if(!effectRun){
-                Instantiate(deathEffect, transform.position, transform.rotation);
+                Instantiate(MainDeathEffect, transform.position, transform.rotation);
                 effectRun = true;
             }
             scoreText.enabled = false;
@@ -263,16 +266,28 @@ public class Pacman : MonoBehaviour
         //invincible status
         if (isInvincible)
         {
-            if (target.tag == "Ghost")
-            {
+            if (target.tag == "PatrolGhost"){
+                
+               Instantiate(PatrolDeathEffect, target.transform.position, target.transform.rotation); 
+                Destroy(target);
+
+                score += 10;
+            
+            }else if(target.tag == "ChasingGhost"){
+                Instantiate(ChasingDeathEffect, target.transform.position, target.transform.rotation); 
                 Destroy(target);
                 score += 10;
+
+            }else if(target.tag == "AssaultGhost"){
+                Instantiate(AssDeathEffect, target.transform.position, target.transform.rotation); 
+                Destroy(target);
+                score += 10;    
             }
         }
         //with shield, defend ghost's attack
         else if (equipShield)
         {   
-            if (target.tag == "Ghost")
+            if (target.tag == "PatrolGhost" || target.tag == "ChasingGhost" || target.tag == "AssaultGhost")
             {   
                 Destroy(currentShield);
                 equipShield = false;
@@ -282,7 +297,7 @@ public class Pacman : MonoBehaviour
         //not in invincible status
         else 
         {   
-            if (target.tag == "Ghost")
+            if (target.tag == "PatrolGhost" || target.tag == "ChasingGhost" || target.tag == "AssaultGhost")
             {
                 isDead = true;
             }
