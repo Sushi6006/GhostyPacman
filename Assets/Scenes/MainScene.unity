@@ -54006,6 +54006,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2013581268 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6569105341604593961, guid: f40d0d743404d41a68f0fdc5ea6970fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2142782748}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1857b6fd595b4e6a92349695a5b1b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!95 &2013581269 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6569105341604594005, guid: f40d0d743404d41a68f0fdc5ea6970fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2142782748}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2015614300 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4fed819e313b07343b2b7872cb56cd16,
@@ -54529,6 +54547,21 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 6569105341604593966, guid: f40d0d743404d41a68f0fdc5ea6970fd,
+        type: 3}
+      propertyPath: MainMenu
+      value: 
+      objectReference: {fileID: 506005265}
+    - target: {fileID: 6569105341604593966, guid: f40d0d743404d41a68f0fdc5ea6970fd,
+        type: 3}
+      propertyPath: menuAnimationControl
+      value: 
+      objectReference: {fileID: 2013581268}
+    - target: {fileID: 6569105341604593966, guid: f40d0d743404d41a68f0fdc5ea6970fd,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2013581269}
     - target: {fileID: 6569105341604594004, guid: f40d0d743404d41a68f0fdc5ea6970fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -54568,6 +54601,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569105341741832979, guid: f40d0d743404d41a68f0fdc5ea6970fd,
+        type: 3}
+      propertyPath: MainMenu
+      value: 
+      objectReference: {fileID: 506005265}
+    - target: {fileID: 6569105341741833066, guid: f40d0d743404d41a68f0fdc5ea6970fd,
+        type: 3}
+      propertyPath: m_Name
+      value: DeadQuit Button
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4192449424349956462, guid: f40d0d743404d41a68f0fdc5ea6970fd, type: 3}
