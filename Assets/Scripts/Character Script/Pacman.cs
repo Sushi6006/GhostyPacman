@@ -231,7 +231,7 @@ public class Pacman : MonoBehaviour
     void propCollision(GameObject target)
     {
         //eat the pacdot
-        if (target.tag == "pacdot")
+        if (target.tag == "pacdot" && !target.GetComponent<Pacdot>().isHide)
         {      
             eatSfx.Play();
             target.SendMessage("beEaten");
@@ -239,7 +239,7 @@ public class Pacman : MonoBehaviour
         }
 
         //eat the power pacdot
-        if (target.tag == "PowerPacdot")
+        if (target.tag == "PowerPacdot" && !target.GetComponent<Prop>().isHide)
         {   
             eatPower.Play();
             target.SendMessage("beEaten");
@@ -247,7 +247,7 @@ public class Pacman : MonoBehaviour
         }
 
         //eat the speed up pacdot
-        if (target.tag == "SpeedUp")
+        if (target.tag == "SpeedUp" && !target.GetComponent<Prop>().isHide)
         {   
             eatAcceleration.Play();
             target.SendMessage("beEaten");
@@ -257,7 +257,7 @@ public class Pacman : MonoBehaviour
         }
 
         //eat the shield
-        if (target.tag == "Shield")
+        if (target.tag == "Shield" && !target.GetComponent<Prop>().isHide)
         {   
             eatShield.Play();
             target.SendMessage("beEaten");
