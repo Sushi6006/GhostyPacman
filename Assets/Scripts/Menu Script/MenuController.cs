@@ -48,5 +48,9 @@ public class MenuController : MonoBehaviour
     public void resetIndexOfButton(){
         indexOfButton = -2;
     }
+
+    public void showMouse(){
+        Cursor.visible = true;
+    }
 }
 

@@ -469,7 +469,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 372241050}
+      - m_Target: {fileID: 0}
         m_MethodName: EndGame
         m_Mode: 1
         m_Arguments:
@@ -584,15 +584,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 372241048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 997565a02f61848c7b46cf72670e5647, type: 3}
+  m_Script: {fileID: 11500000, guid: aa56bc203cdc14905bbe22e15e48d8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuController: {fileID: 936110084}
-  animator: {fileID: 1345359462}
-  menuAnimationControl: {fileID: 1345359461}
-  MainMenu: {fileID: 372241048}
-  thisIndex: -10
-  mouse_over: 0
+  indexOfButton: -1
+  keydown: 0
+  maxNumOfButton: 2
+  menuButton: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!224 &372734535 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6990910473717038106, guid: be12e1f9aad0a46a9b17590e683683ae,
@@ -1068,6 +1067,11 @@ PrefabInstance:
       propertyPath: menuController
       value: 
       objectReference: {fileID: 936110084}
+    - target: {fileID: 6990910473717038176, guid: be12e1f9aad0a46a9b17590e683683ae,
+        type: 3}
+      propertyPath: MainMenu
+      value: 
+      objectReference: {fileID: 758915522}
     - target: {fileID: 6990910473717038180, guid: be12e1f9aad0a46a9b17590e683683ae,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1397,15 +1401,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 758915522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 997565a02f61848c7b46cf72670e5647, type: 3}
+  m_Script: {fileID: 11500000, guid: aa56bc203cdc14905bbe22e15e48d8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuController: {fileID: 936110084}
-  animator: {fileID: 0}
-  menuAnimationControl: {fileID: 0}
-  MainMenu: {fileID: 0}
-  thisIndex: -10
-  mouse_over: 0
+  indexOfButton: -1
+  keydown: 0
+  maxNumOfButton: 0
+  menuButton: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!1 &936110079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,24 +1735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 997565a02f61848c7b46cf72670e5647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1345359461 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6990910473717038183, guid: be12e1f9aad0a46a9b17590e683683ae,
-    type: 3}
-  m_PrefabInstance: {fileID: 6990910472921924132}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1345359459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1857b6fd595b4e6a92349695a5b1b2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!95 &1345359462 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6990910473717038107, guid: be12e1f9aad0a46a9b17590e683683ae,
-    type: 3}
-  m_PrefabInstance: {fileID: 6990910472921924132}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1345359466
 MonoBehaviour:
   m_ObjectHideFlags: 0
