@@ -243,6 +243,7 @@ public class Pacman : MonoBehaviour
         {   
             eatPower.Play();
             target.SendMessage("beEaten");
+            isInvincible = true;
             invincibleTime = invincibleKeepTime;
         }
 

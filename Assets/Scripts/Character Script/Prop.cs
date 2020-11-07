@@ -15,7 +15,7 @@ public class Prop : MonoBehaviour
     //float
     private float floatSpeed = 2f;
     //floating scale
-    private float floatScale = 0.004f;
+    private float floatScale = 0.005f;
 
     //this owner of this script
     private GameObject prop;
