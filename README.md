@@ -3,7 +3,7 @@
 <!-- omit in toc -->
 # GHOSTY PACMAN - Group 33 Reimagined Potato
 We re-created Pac-Man in 3D. [Watch Game Trailer on YouTube](https://youtu.be/c720pBMu_3k).<br>
-[![](https://youtu.be/c720pBMu_3k)](https://youtu.be/c720pBMu_3k)
+[![](https://youtu.be/c720pBMu_3k/0.jpg)](https://youtu.be/c720pBMu_3k)
 
 <br>
 
