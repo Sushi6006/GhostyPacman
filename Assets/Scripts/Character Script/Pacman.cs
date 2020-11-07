@@ -58,6 +58,7 @@ public class Pacman : MonoBehaviour
     public GameObject objectToDisappear;
     private bool effectRun = false;
 
+
     //sfx
     public AudioSource eatSfx;
     public AudioSource gameDie;
@@ -88,13 +89,14 @@ public class Pacman : MonoBehaviour
     {   
         controller = GetComponent<CharacterController>();
         isClassic = true;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
-    {   
-        Cursor.visible = false;
+    {    
         if (!isDead){
+            
             lastChange -= Time.deltaTime;
 
             Move();

@@ -30,7 +30,6 @@ public class DeadMenuControl : MonoBehaviour
     }
 
     public void toggleDeadMenu(int score){
-        Debug.Log(score);
         gameObject.SetActive(true);
         scoreText.text = "YOUR SCORE:\n"+ score.ToString();
 

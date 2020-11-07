@@ -589,7 +589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuController: {fileID: 936110084}
   animator: {fileID: 1345359462}
-  menuAnimationControl: {fileID: 0}
+  menuAnimationControl: {fileID: 1345359461}
   MainMenu: {fileID: 372241048}
   thisIndex: -10
   mouse_over: 0
@@ -1730,6 +1730,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 997565a02f61848c7b46cf72670e5647, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1345359461 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6990910473717038183, guid: be12e1f9aad0a46a9b17590e683683ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 6990910472921924132}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345359459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1857b6fd595b4e6a92349695a5b1b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &1345359462 stripped
