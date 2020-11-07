@@ -53,7 +53,7 @@ Pac-Man is originally developed and released in 1980 by the Japanese company, Na
     <td>Xubin Zou<br><code>@NicKZ-gene</code></td>
     <td>
       <li>Menu</li>
-      <li>Game UI (including score systems)</li>
+      <li>Game UI</li>
       <li>Particle System</li>
       <li>Aesthetics</li>
     </td>
@@ -65,6 +65,7 @@ Pac-Man is originally developed and released in 1980 by the Japanese company, Na
     </td>
   </tr>
 </table>
+
 <br><br>
 
 ## Explanation of the Game

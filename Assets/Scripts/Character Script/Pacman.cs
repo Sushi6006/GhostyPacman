@@ -56,6 +56,7 @@ public class Pacman : MonoBehaviour
     public GameObject ChasingDeathEffect;
     public GameObject AssDeathEffect;
     public GameObject objectToDisappear;
+    public GameObject power_Ring;
     private bool effectRun = false;
 
 
@@ -72,6 +73,7 @@ public class Pacman : MonoBehaviour
     private bool isInvincible = false;
     private float invincibleTime = 0f;
     private float invincibleKeepTime = 5f;
+    private GameObject powerRing;
     //speed up dot
     private bool isSpeedUp = false;
     private float acceleratedSpeed = 10f;
@@ -105,11 +107,13 @@ public class Pacman : MonoBehaviour
 
             //calculate invincible time
             if (isInvincible)
-            {
+            {   
+                powerRing.transform.position = this.transform.position;
                 invincibleTime -= Time.deltaTime;
                 if (invincibleTime <= 0)
                 {
                     isInvincible = false;
+                    Destroy(powerRing);
                 } 
             }
 
@@ -247,6 +251,8 @@ public class Pacman : MonoBehaviour
             target.SendMessage("beEaten");
             isInvincible = true;
             invincibleTime = invincibleKeepTime;
+            //generate the power ring
+            powerRing = Instantiate(power_Ring);
         }
 
         //eat the speed up pacdot
@@ -301,6 +307,7 @@ public class Pacman : MonoBehaviour
             if (target.tag == "PatrolGhost" || target.tag == "ChasingGhost" || target.tag == "AssaultGhost")
             {   
                 Destroy(currentShield);
+                eatShield.Play();
                 equipShield = false;
             }
         }

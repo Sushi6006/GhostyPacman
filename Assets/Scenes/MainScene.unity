@@ -2700,7 +2700,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25732
+  m_Name: pb_Mesh15422
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -52271,7 +52271,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25570
+  m_Name: pb_Mesh15262
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -53664,6 +53664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Range
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 697292386840099107, guid: 8f5f0edd487ab754aa29836a77d4d694,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 697292387212777231, guid: 8f5f0edd487ab754aa29836a77d4d694,
         type: 3}
@@ -55153,6 +55158,17 @@ PrefabInstance:
       propertyPath: pauseControl
       value: 
       objectReference: {fileID: 1540097012}
+    - target: {fileID: 4053117611859264943, guid: 411735ec24cab4e749137ca3681a9741,
+        type: 3}
+      propertyPath: powerRing
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053117611859264943, guid: 411735ec24cab4e749137ca3681a9741,
+        type: 3}
+      propertyPath: power_Ring
+      value: 
+      objectReference: {fileID: 2746109738529958896, guid: 67591cf628aab124f915f9910ac3a173,
+        type: 3}
     - target: {fileID: 4590621039174480767, guid: 411735ec24cab4e749137ca3681a9741,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -55207,6 +55223,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614877760267685085, guid: 411735ec24cab4e749137ca3681a9741,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 33.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614877760267685085, guid: 411735ec24cab4e749137ca3681a9741,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -44.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6807167813813399614, guid: 411735ec24cab4e749137ca3681a9741,
+        type: 3}
+      propertyPath: m_SensorSize.x
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 411735ec24cab4e749137ca3681a9741, type: 3}
