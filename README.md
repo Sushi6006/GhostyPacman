@@ -2,16 +2,17 @@
 **COMP30019 – Graphics and Interaction**
 <!-- omit in toc -->
 # GHOSTY PACMAN - Group 33 Reimagined Potato
-We re-created Pac-Man in 3D. 
 
 <div align="center">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/c720pBMu_3k" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-<!-- [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/c720pBMu_3k/0.jpg)](https://youtu.be/c720pBMu_3k) -->
+    <p><b>We re-created Pac-Man in 3D.</b></p>
+    <a href="https://youtu.be/c720pBMu_3k">
+        <img src="https://img.youtube.com/vi/c720pBMu_3k/0.jpg">
+        <p>Watch Game Trailer on YouTube Now</p>
+    </a>
 </div>
 
-[Watch Game Trailer on YouTube](https://youtu.be/c720pBMu_3k).<br>
+<!-- [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/c720pBMu_3k/0.jpg)](https://youtu.be/c720pBMu_3k) -->
+<!-- [Watch Game Trailer on YouTube](https://youtu.be/c720pBMu_3k).<br> -->
 
 <br>
 
