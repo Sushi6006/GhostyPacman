@@ -21,12 +21,17 @@ public class Pacman : MonoBehaviour
     private float floatSpeed = 5f;
     //floating scale
     private float floatScale = 0.05f;
+
     //fps controller
-    public bool isFPS = false;
+    private bool isFPS = false;
     //classic controller
-    public bool isClassic = false;
+    private bool isClassic = false;
+    //the last change's record of switching between fps and classic
+    private float manipulateTime = 0f;
     private float coolDown = 0.25f;
+    //the last change's record of classic wasd
     private float lastChange = 0f;
+    //turn-back speed
     public float turnspeed = 3.5f;
     //the direction of rotation
     Quaternion quaDir;
@@ -100,6 +105,23 @@ public class Pacman : MonoBehaviour
         if (!isDead){
             
             lastChange -= Time.deltaTime;
+            manipulateTime -= Time.deltaTime;
+            
+            //switch the manipulate approach
+            if (Input.GetKey("r") && manipulateTime < 0)
+            {
+                if (isFPS)
+                {
+                    isFPS = false;
+                    isClassic = true;
+                }
+                else
+                {
+                    isFPS = true;
+                    isClassic = false;
+                }
+                manipulateTime = coolDown;
+            }
 
             Move();
 
