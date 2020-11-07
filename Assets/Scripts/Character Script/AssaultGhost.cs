@@ -31,6 +31,11 @@ public class AssaultGhost : MonoBehaviour
     //agent helps the pathfinding
     private UnityEngine.AI.NavMeshAgent agent;
 
+    //float
+    private float floatSpeed = 3f;
+    //floating scale
+    private float floatScale = 0.2f;
+
     // Start is called before the first frame update
     void Start()
     {   
@@ -53,6 +58,9 @@ public class AssaultGhost : MonoBehaviour
         {
             patrol();
         }
+
+        //float
+        transform.position += Vector3.up * Mathf.Cos(Time.time * floatSpeed) * floatScale;
     }
 
     public void attackPacman()

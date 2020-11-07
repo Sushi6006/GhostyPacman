@@ -2,38 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pacdot : MonoBehaviour
+public class Prop : MonoBehaviour
 {   
 
     //reborn clock
-    private float reborn = 30f;
+    private float reborn = 60f;
     //current time
     private float time = 0f;
     //whether is hide
     public bool isHide = false;
 
-    //the owner of the script
-    private GameObject pacdot;
+    //float
+    private float floatSpeed = 2f;
+    //floating scale
+    private float floatScale = 0.004f;
+
+    //this owner of this script
+    private GameObject prop;
 
     // Start is called before the first frame update
     void Start()
     {
-        pacdot = this.gameObject;
+        prop = this.gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {   
+        floatMove();
+
         //reborn after reborn time
         if (isHide)
         {   
             time -= Time.deltaTime;
             if (time < 0f)
             {   
-                pacdot.GetComponent<Renderer>().enabled = true;
+                prop.GetComponent<Renderer>().enabled = true;
                 isHide = false;
             }
         }
+    }
+
+    /*make it float*/
+    private void floatMove()
+    {
+        transform.position += Vector3.up * Mathf.Cos(Time.time * floatSpeed) * floatScale;
     }
     
     /*when the object be eaten*/
@@ -42,10 +55,9 @@ public class Pacdot : MonoBehaviour
     {   
         if (!isHide)
         {
-            pacdot.GetComponent<Renderer>().enabled = false;
+            prop.GetComponent<Renderer>().enabled = false;
             isHide = true;
             time = reborn;
         }
     }
-
 }

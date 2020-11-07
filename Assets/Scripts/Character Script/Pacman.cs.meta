@@ -6,9 +6,14 @@ MonoImporter:
   defaultReferences:
   - scoreText: {instanceID: 0}
   - deadMenuControl: {instanceID: 0}
-  - menuButton: {instanceID: 0}
+  - MainDeathEffect: {instanceID: 0}
+  - PatrolDeathEffect: {instanceID: 0}
+  - ChasingDeathEffect: {instanceID: 0}
+  - AssDeathEffect: {instanceID: 0}
+  - objectToDisappear: {instanceID: 0}
   - eatSfx: {instanceID: 0}
-  - shieldPrefab: {instanceID: 0}
+  - shieldPrefab: {fileID: 3888807184363160355, guid: 1c4b098c64b83984daf96102a7aca6c3,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

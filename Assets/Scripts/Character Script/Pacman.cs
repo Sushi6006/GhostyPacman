@@ -31,14 +31,14 @@ public class Pacman : MonoBehaviour
     //the direction of rotation
     Quaternion quaDir;
 
-    /*gravity check*/
+    /*gravity check
     private float gravity = 0;
     //standard gravity
     private float standardGravity = -10f;
     //gravity acceleration
     private float acceleration = -9.8f;
-
-
+    */
+    
     /*UI part*/
     //player's score
     private int score = 0;
@@ -49,6 +49,7 @@ public class Pacman : MonoBehaviour
     public DeadMenuControl deadMenuControl;
     
 
+    /*particle part*/
     //Effect part
     public GameObject MainDeathEffect;
     public GameObject PatrolDeathEffect;
@@ -57,8 +58,12 @@ public class Pacman : MonoBehaviour
     public GameObject objectToDisappear;
     private bool effectRun = false;
 
-    // sfx
+    //sfx
     public AudioSource eatSfx;
+    public AudioSource gameDie;
+    public AudioSource eatShield;
+    public AudioSource eatPower;
+    public AudioSource eatAcceleration;
 
 
     /*prop*/
@@ -75,7 +80,6 @@ public class Pacman : MonoBehaviour
     private bool equipShield = false;
     public GameObject shieldPrefab;
     private GameObject currentShield = null;
-
 
 
 
@@ -125,19 +129,20 @@ public class Pacman : MonoBehaviour
             }
 
         }else{
+
+            gameDie.Play();
+
             //Run the particle effect only once
             if(!effectRun){
                 Instantiate(MainDeathEffect, transform.position, transform.rotation);
                 effectRun = true;
             }
+
             scoreText.enabled = false;
             Cursor.visible = true;
-            
-            
-            
             deadMenuControl.toggleDeadMenu(score);
-            
 
+            //hide the pacman
             objectToDisappear.GetComponent<Renderer>().enabled = false;
               
         }
@@ -151,6 +156,7 @@ public class Pacman : MonoBehaviour
     // Move controller 
     void Move()
     {   
+        /*
         //check gravity
         if (!controller.isGrounded)
         {   
@@ -162,9 +168,10 @@ public class Pacman : MonoBehaviour
             }
         }
         moveDirec.y += gravity;
+        */
         
         //make pacman float
-        moveDirec += Vector3.up * Mathf.Cos(Time.time * floatSpeed) * floatScale;
+        //moveDirec += Vector3.up * Mathf.Cos(Time.time * floatSpeed) * floatScale;
 
         //fps controller
         if (isFPS)
@@ -226,24 +233,25 @@ public class Pacman : MonoBehaviour
     {
         //eat the pacdot
         if (target.tag == "pacdot")
-        {   
+        {      
             eatSfx.Play();
-            Destroy(target);
+            target.SendMessage("beEaten");
             score ++;
         }
 
         //eat the power pacdot
         if (target.tag == "PowerPacdot")
-        {
-            Destroy(target);
-            isInvincible = true;
+        {   
+            eatPower.Play();
+            target.SendMessage("beEaten");
             invincibleTime = invincibleKeepTime;
         }
 
         //eat the speed up pacdot
         if (target.tag == "SpeedUp")
-        {
-            Destroy(target);
+        {   
+            eatAcceleration.Play();
+            target.SendMessage("beEaten");
             isSpeedUp = true;
             speedUpTime = speedUpKeepTime;
             movementSpeed = acceleratedSpeed;
@@ -251,8 +259,9 @@ public class Pacman : MonoBehaviour
 
         //eat the shield
         if (target.tag == "Shield")
-        {
-            Destroy(target);
+        {   
+            eatShield.Play();
+            target.SendMessage("beEaten");
             equipShield = true;
             //generate the shield around pacman
             GameObject newShield = (GameObject)Instantiate(shieldPrefab);
@@ -268,7 +277,7 @@ public class Pacman : MonoBehaviour
         {
             if (target.tag == "PatrolGhost"){
                 
-               Instantiate(PatrolDeathEffect, target.transform.position, target.transform.rotation); 
+                Instantiate(PatrolDeathEffect, target.transform.position, target.transform.rotation); 
                 Destroy(target);
 
                 score += 10;
