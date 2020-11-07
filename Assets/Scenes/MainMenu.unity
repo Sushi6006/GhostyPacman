@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuController: {fileID: 936110084}
-  animator: {fileID: 0}
+  animator: {fileID: 1345359462}
   menuAnimationControl: {fileID: 0}
   MainMenu: {fileID: 372241048}
   thisIndex: -10
@@ -1732,6 +1732,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 997565a02f61848c7b46cf72670e5647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1345359462 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6990910473717038107, guid: be12e1f9aad0a46a9b17590e683683ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 6990910472921924132}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1345359466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1750,7 +1756,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1345359460}
-          m_MethodName: switchScene
+          m_MethodName: switchtoMainScene
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2000,17 +2006,6 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1457105797}
-          m_MethodName: SetActive
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
         - m_Target: {fileID: 372241048}
           m_MethodName: SetActive
           m_Mode: 6
@@ -2672,7 +2667,7 @@ PrefabInstance:
     - target: {fileID: 6990910473717038180, guid: be12e1f9aad0a46a9b17590e683683ae,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: switchScene
+      value: switchtoMainScene
       objectReference: {fileID: 0}
     - target: {fileID: 6990910473717038180, guid: be12e1f9aad0a46a9b17590e683683ae,
         type: 3}

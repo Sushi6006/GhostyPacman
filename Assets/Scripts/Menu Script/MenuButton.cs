@@ -68,13 +68,12 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerEnter(PointerEventData eventData)
      {
          mouse_over = true;
-         Debug.Log("Mouse enter");
      }
  
      public void OnPointerExit(PointerEventData eventData)
      {
          mouse_over = false;
-         Debug.Log("Mouse exit");
+         
      }
 
 
