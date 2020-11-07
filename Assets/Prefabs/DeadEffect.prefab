@@ -115,7 +115,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.6
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.09
+      scalar: 0.18
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -600,7 +600,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 100
+    maxNumParticles: 10000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -659,14 +659,14 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
-    angle: 22
-    length: 5
+    type: 8
+    angle: 28.81
+    length: 7.59
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 0
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: 0}
+    m_Rotation: {x: 90, y: 9010, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -975,7 +975,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 100
+        scalar: 1000
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1039,22 +1039,22 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0
+          time: 0.004737854
           value: 1
-          inSlope: -0.38593265
-          outSlope: -0.38593265
+          inSlope: -0.15552773
+          outSlope: -0.15552773
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.77033484
+          outWeight: 0.26190588
         - serializedVersion: 3
           time: 1
           value: 0
-          inSlope: -0.049549527
-          outSlope: -0.049549527
+          inSlope: 0.6264332
+          outSlope: 0.6264332
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.27272737
+          inWeight: 0.6285705
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2

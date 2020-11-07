@@ -47,10 +47,12 @@ public class Pacman : MonoBehaviour
     public int health = 100;
     private bool isDead = false;
     public DeadMenuControl deadMenuControl;
-    public MenuButton menuButton;
+    
 
     //Effect part
     public GameObject deathEffect;
+    public GameObject objectToDisappear;
+    private bool effectRun = false;
 
     // sfx
     public AudioSource eatSfx;
@@ -120,16 +122,27 @@ public class Pacman : MonoBehaviour
             }
 
         }else{
-            //让特效出来的，不要删a酱
-            //把相机搞出去就行了
-            Instantiate(deathEffect, transform.position, transform.rotation);
+            //Run the particle effect only once
+            if(!effectRun){
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                effectRun = true;
+            }
             scoreText.enabled = false;
             Cursor.visible = true;
+            
+            
+            
             deadMenuControl.toggleDeadMenu(score);
             
-            //Destroy(gameObject);
-            
+
+            objectToDisappear.GetComponent<Renderer>().enabled = false;
+              
         }
+        
+    }
+
+    public bool checkDead(){
+        return isDead;
     }
 
     // Move controller 
