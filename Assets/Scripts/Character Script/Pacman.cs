@@ -110,7 +110,7 @@ public class Pacman : MonoBehaviour
             manipulateTime -= Time.deltaTime;
             
             //switch the manipulate approach
-            if (Input.GetKey("r") && manipulateTime < 0)
+            if (Input.GetKey("c") || Input.GetKey("r") && manipulateTime < 0)
             {
                 if (isFPS)
                 {
@@ -251,6 +251,7 @@ public class Pacman : MonoBehaviour
         controller.Move(moveDirec * Time.deltaTime * movementSpeed);
     }
 
+    //set the rotation to normalized num
     int rotationNormalize()
     {   
         float difference = 180;
@@ -343,6 +344,7 @@ public class Pacman : MonoBehaviour
                 Destroy(target);
                 score += 10;    
             }
+            eatSfx.Play();
         }
         //with shield, defend ghost's attack
         else if (equipShield)

@@ -4,10 +4,10 @@
 	{
 		_Color("Color", Color) = (1,1,1,1)
 		_MainTex("Main Texture", 2D) = "white" {}
-		// Ambient light is applied uniformly to all surfaces on the object.
+		//ambient light is applied uniformly to all surfaces on the object.
 		_AmbientColor("Ambient Color", Color) = (0.4,0.4,0.4,1)
 		_SpecularColor("Specular Color", Color) = (0.9,0.9,0.9,1)
-		// Controls the size of the specular reflection.
+		//controls the size of the specular reflection.
 		_Glossiness("Glossiness", Float) = 32
 		_RimColor("Rim Color", Color) = (1,1,1,1)
 		_RimAmount("Rim Amount", Range(0, 1)) = 0.716
