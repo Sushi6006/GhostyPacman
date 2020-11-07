@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 9c4c269bda0444b4892c0d799e19cc68
+guid: 32aed5cbc314fe2408649c92662b3c80
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - pacdot: {fileID: 3986930377975183904, guid: 4bc1969db836a6c4f86f324c2a786bfa,
-      type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

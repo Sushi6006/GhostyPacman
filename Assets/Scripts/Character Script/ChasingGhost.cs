@@ -17,6 +17,11 @@ public class ChasingGhost : MonoBehaviour
     //cooldown
     private float attackCooldown = 2;
     public int damage = 25;
+
+    //float
+    private float floatSpeed = 3f;
+    //floating scale
+    private float floatScale = 0.2f;
    
     void Start()
     {   
@@ -29,6 +34,9 @@ public class ChasingGhost : MonoBehaviour
     {   
         times -= Time.deltaTime; 
         agent.destination = target.transform.position;
+
+        //float
+        transform.position += Vector3.up * Mathf.Cos(Time.time * floatSpeed) * floatScale;
 
     }
 

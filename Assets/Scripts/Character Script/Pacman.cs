@@ -18,9 +18,9 @@ public class Pacman : MonoBehaviour
     //the direction of pacman
     private Vector3 moveDirec;
     //floating speed
-    private float floatSpeed = 5f;
+    //private float floatSpeed = 5f;
     //floating scale
-    private float floatScale = 0.05f;
+    //private float floatScale = 0.05f;
     //fps controller
     public bool isFPS = false;
     //classic controller
@@ -47,8 +47,12 @@ public class Pacman : MonoBehaviour
     public int health = 100;
     private bool isDead = false;
     public DeadMenuControl deadMenuControl;
-    public MenuButton menuButton;
+    
 
+    //Effect part
+    public GameObject deathEffect;
+    public GameObject objectToDisappear;
+    private bool effectRun = false;
 
     // sfx
     public AudioSource eatSfx;
@@ -68,6 +72,8 @@ public class Pacman : MonoBehaviour
     private bool equipShield = false;
     public GameObject shieldPrefab;
     private GameObject currentShield = null;
+
+
 
 
     // Start is called before the first frame update
@@ -116,11 +122,25 @@ public class Pacman : MonoBehaviour
             }
 
         }else{
+            //Run the particle effect only once
+            if(!effectRun){
+                Instantiate(deathEffect, transform.position, transform.rotation);
+                effectRun = true;
+            }
             scoreText.enabled = false;
             Cursor.visible = true;
-            deadMenuControl.toggleDeadMenu(score);
             
+            
+            deadMenuControl.toggleDeadMenu(score);
+
+            objectToDisappear.GetComponent<Renderer>().enabled = false;
+              
         }
+        
+    }
+
+    public bool checkDead(){
+        return isDead;
     }
 
     // Move controller 
@@ -139,7 +159,7 @@ public class Pacman : MonoBehaviour
         moveDirec.y += gravity;
         
         //make pacman float
-        moveDirec += Vector3.up * Mathf.Cos(Time.time * floatSpeed) * floatScale;
+        //moveDirec += Vector3.up * Mathf.Cos(Time.time * floatSpeed) * floatScale;
 
         //fps controller
         if (isFPS)
@@ -147,7 +167,7 @@ public class Pacman : MonoBehaviour
             //level shift
             moveDirec = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             moveDirec = transform.TransformDirection(moveDirec);
-
+            
             //direction control by mouse
             float mouseX = Input.GetAxis("Mouse X") * rotateSpeed;
             //float mouseY = Input.GetAxis("Mouse Y") * rotateSpeed;
@@ -200,18 +220,17 @@ public class Pacman : MonoBehaviour
     void propCollision(GameObject target)
     {
         //eat the pacdot
-        if (target.tag == "pacdot")
+        if (target.tag == "pacdot" && !target.GetComponent<Pacdot>().isHide)
         {   
             eatSfx.Play();
-            target.SetActive(false);
-            print("AAA");
+            target.SendMessage("beEaten");
             score ++;
         }
 
         //eat the power pacdot
         if (target.tag == "PowerPacdot")
         {
-            Destroy(target);
+            target.SendMessage("beEaten");
             isInvincible = true;
             invincibleTime = invincibleKeepTime;
         }
@@ -219,7 +238,7 @@ public class Pacman : MonoBehaviour
         //eat the speed up pacdot
         if (target.tag == "SpeedUp")
         {
-            Destroy(target);
+            target.SendMessage("beEaten");
             isSpeedUp = true;
             speedUpTime = speedUpKeepTime;
             movementSpeed = acceleratedSpeed;
@@ -228,7 +247,7 @@ public class Pacman : MonoBehaviour
         //eat the shield
         if (target.tag == "Shield")
         {
-            Destroy(target);
+            target.SendMessage("beEaten");
             equipShield = true;
             //generate the shield around pacman
             GameObject newShield = (GameObject)Instantiate(shieldPrefab);
