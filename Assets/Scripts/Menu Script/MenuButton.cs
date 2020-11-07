@@ -78,8 +78,12 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
      }
 
 
-    public void switchScene(){
+    public void switchtoMainScene(){
         SceneManager.LoadScene("MainScene");
+    }
+
+    public void switchtoMainMenu(){
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void changeMouse(){
