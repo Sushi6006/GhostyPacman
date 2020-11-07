@@ -35,6 +35,8 @@ public class Pacman : MonoBehaviour
     public float turnspeed = 3.5f;
     //the direction of rotation
     Quaternion quaDir;
+    //self-normalize after switch
+    int[] angles = new int[] {180, 0};
 
     /*gravity check
     private float gravity = 0;
@@ -119,6 +121,9 @@ public class Pacman : MonoBehaviour
                 {
                     isFPS = true;
                     isClassic = false;
+                    //normalize the front facing direction
+                    quaDir = Quaternion.Euler(new Vector3(0, rotationNormalize(), 0));
+                    transform.rotation = Quaternion.Lerp(transform.rotation, quaDir, Time.fixedDeltaTime * turnspeed);
                 }
                 manipulateTime = coolDown;
             }
@@ -224,17 +229,17 @@ public class Pacman : MonoBehaviour
                 {
                     //transform.localRotation = transform.localRotation * Quaternion.Euler(0, 0, 0);
                 }
-                if (Input.GetKey("s"))
+                else if (Input.GetKey("s"))
                 {   
                     quaDir = transform.localRotation * Quaternion.Euler(0, 180, 0);
                     lastChange = coolDown;
                 }
-                if (Input.GetKey("a"))
+                else if (Input.GetKey("a"))
                 {   
                     quaDir = transform.localRotation * Quaternion.Euler(0, -90, 0);
                     lastChange = coolDown;
                 }
-                if (Input.GetKey("d"))
+                else if (Input.GetKey("d"))
                 {
                 
                     quaDir = transform.localRotation * Quaternion.Euler(0, 90, 0);
@@ -246,6 +251,22 @@ public class Pacman : MonoBehaviour
         controller.Move(moveDirec * Time.deltaTime * movementSpeed);
     }
 
+    int rotationNormalize()
+    {   
+        float difference = 180;
+        int anglePosition = 0;
+        float y = transform.transform.eulerAngles.y;
+        for (int i = 0; i <= 1; i = i + 1)
+        {   
+            int currentAngle = angles[0];
+            if (currentAngle - y < difference)
+            {
+                difference = currentAngle;
+                anglePosition = i;
+            }
+        }
+        return angles[anglePosition];
+    }
 
     //collision test
     void OnTriggerEnter(Collider hit)

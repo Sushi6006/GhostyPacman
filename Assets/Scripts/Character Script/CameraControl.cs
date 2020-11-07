@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 { 
-  /*prevent the camera from acrossing wall*/
+  /*prevent the camera from crossing wall*/
   public GameObject target;
   public float m_distanceAway = 20f;
 
@@ -55,7 +55,7 @@ public class CameraControl : MonoBehaviour
       }
     }
 
-    /*avoid the camera across the wall*/
+    /*avoid the camera crossing the wall*/
     void cameraHitCheck()
     {
       //the line between camera and the object in the view of camera
