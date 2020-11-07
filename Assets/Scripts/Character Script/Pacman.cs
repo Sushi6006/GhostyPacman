@@ -130,10 +130,9 @@ public class Pacman : MonoBehaviour
 
         }else{
 
-            gameDie.Play();
-
             //Run the particle effect only once
             if(!effectRun){
+                gameDie.Play();
                 Instantiate(MainDeathEffect, transform.position, transform.rotation);
                 effectRun = true;
             }
