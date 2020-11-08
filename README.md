@@ -212,6 +212,7 @@ The script not only make all the pacdots and power-ups respawn after a certain a
 
 ### Map Creation
 Our map was a complete copy from the original Pac-man with all the dimensions and scales re-calculated and adjusted. It was created using ProBuilder (Verified Version 4.2.3) and ProGrid (Preview Version 3.0.3). The map consists of only two objects: A "block" with all the walls and a "plane" for the floor. This is different to the first version of the map with hundreds if not thousands of small cubes. Putting all the walls in one game object makes the AI implementation much easier to do, fixing a bug we had where the chasing ghosts (AI) will wait for the player to stop moving to keep chasing.
+
 <br><br>
 
 ## Resources Used
