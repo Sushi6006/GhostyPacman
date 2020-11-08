@@ -73,6 +73,7 @@ public class Pacman : MonoBehaviour
     public AudioSource eatShield;
     public AudioSource eatPower;
     public AudioSource eatAcceleration;
+    public AudioSource eatGhost;
 
 
     /*prop*/
@@ -344,7 +345,7 @@ public class Pacman : MonoBehaviour
                 Destroy(target);
                 score += 10;    
             }
-            eatSfx.Play();
+            eatGhost.Play();
         }
         //with shield, defend ghost's attack
         else if (equipShield)
