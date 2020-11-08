@@ -33,6 +33,16 @@ Pac-Man was originally developed and released in 1980 by the Japanese company, N
   - [How to Run](#how-to-run)
   - [How to Play](#how-to-play)
 - [Technologies](#technologies)
+- [How We Completed the Main Features](#how-we-completed-the-main-features)
+  - [Menu & UI](#menu--ui)
+  - [Shader](#shader)
+    - [Toon Shader](#toon-shader)
+  - [Player Control](#player-control)
+    - [Pacman Control](#pacman-control)
+    - [Camera](#camera)
+  - [Ghosts (AI)](#ghosts-ai)
+  - [Pacdot and Power-ups](#pacdot-and-power-ups)
+  - [Map Creation](#map-creation)
 - [Resources Used](#resources-used)
 - [Evaluation](#evaluation)
   - [Observation Methods](#observation-methods)
@@ -95,8 +105,9 @@ Pac-Man was originally developed and released in 1980 by the Japanese company, N
 1. Clone this repository with the command
    `git clone https://github.com/Graphics-and-Interaction-COMP30019/project-2-project2_group_33.git ReimaginedPotato`
 2. Import the folder `ReimaginedPotato` as an Unity project in *Unity Hub*.
-3. click da lil play button lah
+3. click da lil play button lah :relaxed:
 4. If it does not work, the reason may be, according to our past experience, because of different platforms (i.e. Windows/macOS). `Reimport All` solves the problem.
+5. If step 3 works, just `Reimport All` to avoid potential problems.
 
 **OR**
 
@@ -105,6 +116,31 @@ Simply open the `GhostyPacman.exe` or `GhostyPacman.app` depending on your opera
 <br><br>
 
 ### How to Play
+**Goal:**\
+Live, run away from ghosts (some are chasing you!), and eat as many pacdots as you can before you die (just like the original one).
+
+**Game Mechanics:**\
+However, there are stuff that work differently compared to the original Pac-man:
+- Some ghosts will be permanently chasing you, some will completely ignore you.
+- Pacdots respawn, after every period of time. So do the power-ups.
+- Besides the power-dot (yellow) that allows you to eat Ghosts, we give another two powerups: *speed-up* (blue) that allows you to, as the name suggests, run really fast, and *shield* (green) that blocks one ghost attack.
+- You will know when you can eat ghosts when there is red particals around you; you will know when it is safe to bump into a ghost when there is a translucent shield around you; and you can know you have a speed-up buff when you, obviously, run really fast.
+
+**Controls:**\
+In *Ghosty Pacman*, we have two control system:
+- Default Pac-man WASD Control (DPWC for reference)
+  - *DPWC* was inherited from the very original arcade Pac-man game, where you are always moving forwards and WASD keys are used to change the direction you are going towards.
+- FP(but no shooting) WASD+Mouse Control (FPWC for reference)
+  - *FPWC* was inspired by modern FPS games where WASD keys are used to move in the given direction and the direction of "forward" is controlled by the mouse. 
+
+Players can use `C` to switch between two control systems. If you are not sure what mode you're in:
+- If you are moving forward without pressing any keys, you are in DPWC, use WASD to change directions
+- If you are stationary without pressing keys, you are in FPWC, use WASD to start moving
+
+Also, the `V` key can be used to switch between third-person view and first-person view.
+
+**One More Thing:**\
+Press `ESC` to pause the game.
 
 <br><br>
 	
@@ -124,6 +160,57 @@ Tools we have used:
 - Google/YouTube/StackOverflow/UnityDocumentation/UnityForum *(for learning)*
   - special thanks to: [Brackeys (YouTube)](https://www.youtube.com/user/Brackeys)
 
+<br><br>
+
+## How We Completed the Main Features
+
+### Menu & UI
+Unity Animator and Canvas (the UI GameObject) were used to create a fantastic UI for our game.
+
+The animator was used to create the animations for all the buttons of three of our menus: main, pause and after-game. The script controls the functionalities and the animations of the buttons.
+
+### Shader
+#### Toon Shader
+While we have weak light elements in our game, so we choose Toon shader, which is basically unaffected by light. Another reason is Toon shader makes object adorable, suitable with our Pacman theme.
+
+Toon shader is genrated by 4 parts: ambient + specular + rim: the ambient and specular is not impacted a lot by light, we can manipulate the size of specular, color of ambient manually. 
+
+The directional light give our shader a basic distinction between dark plane and light plane.
+
+In ambient, we soften the edge between light and dark to remove the jaggedness, **smoothstep()** supports it. 
+
+Specular part is very similar with Phong shader in lab, we also soften the specular spot's edge.
+
+The "rim" of an object will be defined as surfaces that are facing away from the camera, we calculate the rim by taking the dot product of the normal and the view direction, and inverting it. 
+
+​#### Transparent Shader
+Transparent shader is used for shield.
+
+We designed transparent shader with texture firstly, but we did not use the texture later, Texture parameter is kept in the shader.
+
+We **turn off the depth writes(ZWrite)** to keep further object's rendering and turn on **Blending(Blend SrcAlpha OneMinusSrcAlpha)** for the transparent result.
+
+We add ambient and diffuse in the shader to make our shield more powerful. 
+
+The blending method makes better shield than the depth test method.
+
+### Player Control
+#### Pacman Control
+We use CharacterController to control our characters, it will ignore the physical engine and bring smooth operation experience. We designed two control systems, the 'turn around effect' in classic mode is made for smooth reflection(really hard part). 
+
+#### Camera
+We design two version of view, the first person and third person, with switching camera's position. The camera is set as pacman's child object to following the pacman. 
+
+We add ray between camera and pacman to avoid camera going through walls, the ray will detect the obstacle and zoom the camera.
+
+### Ghosts (AI)
+The chasing system on Ghost is finished by navigation in unity, every ghost is an agent.  At first, we have stairs in our map, so the pacman is added gravity calculation though the stairs were removed at last. The ghost can floating.
+
+### Pacdot and Power-ups
+The script not only make all the pacdots and power-ups respawn after a certain amount of time, but also make our object float instead of sticking to the ground.
+
+### Map Creation
+Our map was a complete copy from the original Pac-man with all the dimensions and scales re-calculated and adjusted. It was created using ProBuilder (Verified Version 4.2.3) and ProGrid (Preview Version 3.0.3). The map consists of only two objects: A "block" with all the walls and a "plane" for the floor. This is different to the first version of the map with hundreds if not thousands of small cubes. Putting all the walls in one game object makes the AI implementation much easier to do, fixing a bug we had where the chasing ghosts (AI) will wait for the player to stop moving to keep chasing.
 <br><br>
 
 ## Resources Used
@@ -181,13 +268,11 @@ The reason why we have chosen this observation method is that it gives instant f
 #### Post-task Walkthroughs
 We chose *post-task walkthroughs* as one of our observation methods because of the "undistracted session" our players can have. Though players might forget on certain things they encounter and start to make up things that do not exits, we are still curious to see what feedback can we back with this post walkthroughts. It is also a good opportunity to see what 
 
-
 **Participant #2**
 
 **Participant #3**
 
 **Participant #5**
-
 
 
 ### Query Techniques
@@ -199,3 +284,6 @@ We chose *post-task walkthroughs* as one of our observation methods because of t
 - adding control systems
 - changing the sound
 - removing the day-night effect
+
+
+
