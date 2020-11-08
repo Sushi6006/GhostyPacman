@@ -1679,7 +1679,6 @@ MonoBehaviour:
   menuController: {fileID: 506005266}
   PauseButton: {fileID: 1540097009}
   deadMenu: {fileID: 506005265}
-  pacman: {fileID: 0}
 --- !u!1001 &545525220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3173,6 +3172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf1f0a11766547ba9b607e5cae674b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pacman: {fileID: 0}
   pauseMenu: {fileID: 1957434809}
 --- !u!1 &956080599
 GameObject:
@@ -53147,6 +53147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf1f0a11766547ba9b607e5cae674b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pacman: {fileID: 0}
   pauseMenu: {fileID: 1957434809}
 --- !u!1001 &1483550900
 PrefabInstance:
@@ -53530,6 +53531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf1f0a11766547ba9b607e5cae674b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pacman: {fileID: 919132147615407574}
   pauseMenu: {fileID: 1957434809}
 --- !u!82 &1540097013
 AudioSource:
@@ -54476,6 +54478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faf1f0a11766547ba9b607e5cae674b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pacman: {fileID: 919132147615407574}
   pauseMenu: {fileID: 1957434809}
 --- !u!114 &1968524770 stripped
 MonoBehaviour:
@@ -55158,6 +55161,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4053117611337036816}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &919132147615407574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4053117611859264943, guid: 411735ec24cab4e749137ca3681a9741,
+    type: 3}
+  m_PrefabInstance: {fileID: 4053117611337036816}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147615407573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba57c57fb91786644ab549e52c9909a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2070356482465027442 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2631494980809449826, guid: 411735ec24cab4e749137ca3681a9741,

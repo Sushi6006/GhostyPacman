@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     public static bool GameIsPaused = false;
-    
+    public Pacman pacman;
     public GameObject pauseMenu;
     void Start()
     {
@@ -18,10 +18,10 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {  
         if(Input.GetKeyDown("escape")){
-            if(GameIsPaused){
-                Resume();
-            }else{
+            if(!GameIsPaused && !pacman.checkDead()){
                 Pause();
+            }else{
+                Resume();
             }
         }
 

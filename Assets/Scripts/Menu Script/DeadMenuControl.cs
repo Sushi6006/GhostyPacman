@@ -11,7 +11,6 @@ public class DeadMenuControl : MonoBehaviour
     public MenuController menuController;
     public Button PauseButton;
     public GameObject deadMenu;
-    public Pacman pacman;
     // Start is called before the first frame update
     void Start()
     {
