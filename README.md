@@ -320,7 +320,7 @@ We chose *post-task walkthroughs* as one of our observation methods because of t
 #### Developers' Conclusion from Observation Methods
 There was a clear difference between the quantity and quality of feedbacks given from *Think aloud* and *Post-task walkthroughs*. For *Post-task walkthroughs*, we even asked questions such as "What do you think about our player control system?" and the responses were pretty pointless. In future development, we as game developers will definitely emphasises more on the feedbacks from the method *Think aloud*. Also, for the *Think aloud* method, while rewatching the recordings, I found out that because we were busy noting their feedback, we barely gave reply to their feedback. This might discourage them from giving frequent or meaningful feedback in the latter part of testing and this is definitely something we should improve on.
 
-Since our sample size was incredibly small, we have to value each feedback as important as the others even though they may only appeared once. 
+Since our sample size was incredibly small, we have to value each feedback as important as the others even though they may only appeare once. 
 
 We have summarised some key points from all the feedback we have got from *Observation Methods*:
 - Player control system may be weird
@@ -332,7 +332,7 @@ We have summarised some key points from all the feedback we have got from *Obser
 <br><br>
 
 ### Query Techniques
-We use SUS (System Usability Scale) as our query technique (which was shown in the lecture) for all our 6 participants. All members of our development team like this template a lot and think this is a good form for our game. The following are the questions we listed for our particpants (with scale of 1-5 for each):
+We use SUS (System Usability Scale) as our query technique (which was shown in the lecture) for all our 6 participants. All members of our development team like this template a lot and think this is a good form for our game. The following are the questions we listed for our participants (with scale of 1-5 for each):
 
 (1: Strongly Disagree, 5: Strongly Agree)
 1. I think that I would like to play this game frequently
@@ -344,7 +344,7 @@ We use SUS (System Usability Scale) as our query technique (which was shown in t
 7. I would imagine that most people would learn how to play this game very quickly
 8. I found the game very cumbersome to use
 9. I felt confident playing this game correctly
-10. I needed to learn a lot of controls and game mechanicms before I could start play the game normally
+10. I needed to learn a lot of controls and game mechanics before I could start play the game normally
 
 We gave google forms for our participants to fill in, and the following table shows their responses:
 | Participant ID | Q1 | Q2 | Q3 | Q4 | Q5 | Q6 | Q7 | Q8 | Q9 | Q10 | SU Score |
@@ -368,7 +368,7 @@ We later had discussions with our participants on why they gave out some scores,
 
 ### Changes Made
 Thanks to all the responses we get, we made some big improvements to our game. Here is a list of what we changed after the evaluation process:
-- New control system (WASD only) is now added and users can choose whatever they want wheneven they want it. 
+- New control system (WASD only) is now added and users can choose whatever they want whenever they want it. 
 - Some sound effects are updated with lower pitch and volume. Background music is added
 - Whole lighting mechanism was remade:
   - day & night effect is now gone
@@ -379,9 +379,9 @@ Thanks to all the responses we get, we made some big improvements to our game. H
 <br><br>
 
 ## Final Words from Team Reimagined Potato
-2020 has been a tough year for all of us, stucking at home getting mental issues. I, Sushi6006, would like to thank our subject coordinator and lecturer Dr. Jorge Goncalves for giving us this amazing opportunity bringing us together to complete this project. It has been a great semester having the opportunity to participate in this subject thanks to our lecturer' and tutors' hardwork. 
+2020 has been a tough year for all of us, stucking at home getting mental issues. We, as a team, would like to thank our subject coordinator and lecturer Dr. Jorge Goncalves for giving us this amazing opportunity bringing us together to complete this project. It has been a great semester having the opportunity to participate in this subject thanks to our lecturer' and tutors' hardwork. 
 
-This was the first time developing a full size game for all of us and we all had an amazing time creating what only existed in our mind. Though it may still have bugs, poorly designed flaws, we are proud of what we have achieved and we definitely look forward to complete this game to an industry standard when the holiday is coming up. Great appreciation is to be given to Dr. Goncalves for his kindness giving us a 2-day extension to complete this project.
+This was the first time developing a full size game for all of us and we all had an amazing time creating what only existed in our mind. Though it may still have bugs, poorly designed flaws, we are proud of what we have achieved and we definitely look forward to completing this game to an industry standard when the holiday is coming up. Great appreciation is to be given to Dr. Goncalves for his kindness giving us a 2-day extension to complete this project with our situation.
 
 Lastly, we deeply hope that everyone can enjoy our (prototype) game. Stay safe, and take care!
 
