@@ -329,23 +329,24 @@ public class Pacman : MonoBehaviour
         if (isInvincible)
         {
             if (target.tag == "PatrolGhost"){
-                
+                eatGhost.Play();
                 Instantiate(PatrolDeathEffect, target.transform.position, target.transform.rotation); 
                 Destroy(target);
 
                 score += 10;
             
             }else if(target.tag == "ChasingGhost"){
+                eatGhost.Play();
                 Instantiate(ChasingDeathEffect, target.transform.position, target.transform.rotation); 
                 Destroy(target);
                 score += 10;
 
             }else if(target.tag == "AssaultGhost"){
+                eatGhost.Play();
                 Instantiate(AssDeathEffect, target.transform.position, target.transform.rotation); 
                 Destroy(target);
                 score += 10;    
             }
-            eatGhost.Play();
         }
         //with shield, defend ghost's attack
         else if (equipShield)
