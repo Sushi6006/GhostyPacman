@@ -86,8 +86,8 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 
     public void EndGame(){
-        Application.Quit();
-        // UnityEditor.EditorApplication.isPlaying = false;
+        //Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
     }
 }
 
