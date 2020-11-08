@@ -15,11 +15,6 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] int thisIndex;
     [SerializeField] bool mouse_over = false;
 
-
-
-    
-
-
     void Start()
     {
         
