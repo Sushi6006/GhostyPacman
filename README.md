@@ -37,6 +37,7 @@ Pac-Man was originally developed and released in 1980 by the Japanese company, N
   - [Menu & UI](#menu--ui)
   - [Shader](#shader)
     - [Toon Shader](#toon-shader)
+    - [Transparent Shader](#transparent-shader)
   - [Player Control](#player-control)
     - [Pacman Control](#pacman-control)
     - [Camera](#camera)
@@ -183,7 +184,7 @@ Specular part is very similar with Phong shader in lab, we also soften the specu
 
 The "rim" of an object will be defined as surfaces that are facing away from the camera, we calculate the rim by taking the dot product of the normal and the view direction, and inverting it. 
 
-​#### Transparent Shader
+#### Transparent Shader
 Transparent shader is used for shield.
 
 We designed transparent shader with texture firstly, but we did not use the texture later, Texture parameter is kept in the shader.
