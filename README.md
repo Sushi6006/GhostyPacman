@@ -385,5 +385,5 @@ This was the first time developing a full size game for all of us and we all had
 
 Lastly, we deeply hope that everyone can enjoy our (prototype) game. Stay safe, and take care!
 
-Best regards,
+Best regards,\
 Team Reimagined Potato
